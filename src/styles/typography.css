@@ -58,6 +58,11 @@
   --text-lead--letter-spacing: -0.015rem;
   --text-lead--font-weight: 300;
 
+  --text-lead-sm: 1rem;
+  --text-lead-sm--line-height: 1.75;
+  --text-lead-sm--letter-spacing: -0.015rem;
+  --text-lead-sm--font-weight: 300;
+
   --text-badge: 0.75rem;
   --text-badge--line-height: 1;
   --text-badge--letter-spacing: 0.002rem;

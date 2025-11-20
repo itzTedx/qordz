@@ -94,14 +94,14 @@
 
   --shadow-lg:
     0 0 0 1px color-mix(in oklab, var(--color-stone-500) 10%, transparent),
-    0 1px 1px -0.5px color-mix(in oklab, var(--color-teal-950) 8%, transparent),
-    0 3px 3px -1.5px color-mix(in oklab, var(--color-teal-950) 6%, transparent),
-    0 6px 6px -3px color-mix(in oklab, var(--color-teal-950) 6%, transparent),
-    0 12px 12px -6px color-mix(in oklab, var(--color-teal-950) 6%, transparent),
-    0 16px 16px -8px color-mix(in oklab, var(--color-teal-950) 6%, transparent),
-    0 32px 32px -16px color-mix(in oklab, var(--color-teal-950) 4%, transparent),
-    0 48px 48px -24px color-mix(in oklab, var(--color-teal-950) 4%, transparent),
-    0 64px 64px -32px color-mix(in oklab, var(--color-teal-950) 4%, transparent);
+    0 1px 1px -0.5px color-mix(in oklab, var(--color-teal-900) 8%, transparent),
+    0 3px 3px -1.5px color-mix(in oklab, var(--color-teal-900) 6%, transparent),
+    0 6px 6px -3px color-mix(in oklab, var(--color-teal-900) 6%, transparent),
+    0 12px 12px -6px color-mix(in oklab, var(--color-teal-900) 6%, transparent),
+    0 16px 16px -8px color-mix(in oklab, var(--color-teal-900) 6%, transparent),
+    0 32px 32px -16px color-mix(in oklab, var(--color-teal-900) 4%, transparent),
+    0 48px 48px -24px color-mix(in oklab, var(--color-teal-900) 4%, transparent),
+    0 64px 64px -32px color-mix(in oklab, var(--color-teal-900) 4%, transparent);
 
   --shadow-2xl:
     0 0 0 1px color-mix(in oklab, var(--color-stone-500) 10%, transparent),
