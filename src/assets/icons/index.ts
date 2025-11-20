@@ -1,4 +1,6 @@
 export * from "./chevrons";
+export * from "./info";
+export * from "./phone";
 export * from "./play";
 export * from "./rocket";
 export * from "./search";
