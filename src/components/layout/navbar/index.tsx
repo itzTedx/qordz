@@ -24,18 +24,37 @@ import { cn } from "@/lib/utils";
 
 import { DesktopNavbar } from "./desktop";
 
+const SCROLL_THRESHOLD = 720;
+
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const threshold = 720;
-
   useEffect(() => {
+    let animationFrameId: number | null = null;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > threshold);
+      if (animationFrameId) return;
+      animationFrameId = window.requestAnimationFrame(() => {
+        const shouldBeScrolled = window.scrollY > SCROLL_THRESHOLD;
+        setIsScrolled((prev) => {
+          if (prev === shouldBeScrolled) return prev;
+          return shouldBeScrolled;
+        });
+        animationFrameId = null;
+      });
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      if (animationFrameId) {
+        window.cancelAnimationFrame(animationFrameId);
+      }
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
+
   return (
     <header
       className={cn(
@@ -45,73 +64,76 @@ export const Navbar = () => {
       )}
     >
       <div className="container flex items-center justify-between py-3">
-        <nav className="flex items-center gap-12">
+        <nav aria-label="Primary" className="flex items-center gap-12">
           <Link aria-label="Go to home" href="/" title="Go to home">
             <Logo className="text-teal-900 transition-all duration-300" isMono={!isScrolled} />
           </Link>
           <DesktopNavbar
-            className={cn(
+            itemClassName={cn(
               "transition-colors duration-200",
               isScrolled ? "text-stone-700 hover:text-teal-600" : "text-teal-900 hover:text-card"
             )}
           />
         </nav>
-        <menu
+        <nav
+          aria-label="Secondary"
           className={cn(
             "flex items-center gap-1 rounded-full border p-1 transition-colors duration-300",
             isScrolled ? "bg-background text-stone-600" : "bg-teal-600/50 text-teal-900"
           )}
         >
-          <li>
-            <AnimateIcon animateOnHover>
-              <Button size="icon" variant="ghost">
-                <IconSearch />
-              </Button>
-            </AnimateIcon>
-          </li>
-          <li>
-            <Button className="rounded-full" variant="ghost">
-              About us
-            </Button>
-          </li>
-          <li>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button className="rounded-full bg-card shadow-sm" variant="ghost">
-                  Store <IconChevronDownFill className="text-stone-300" />
+          <ul className="flex items-center gap-1" role="list">
+            <li>
+              <AnimateIcon animateOnHover>
+                <Button aria-label="Open search" size="icon" variant="ghost">
+                  <IconSearch aria-hidden="true" />
                 </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-48">
-                <DropdownMenuLabel>Online Store</DropdownMenuLabel>
+              </AnimateIcon>
+            </li>
+            <li>
+              <Button className="rounded-full" type="button" variant="ghost">
+                About us
+              </Button>
+            </li>
+            <li>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button aria-label="Browse store" className="rounded-full bg-card shadow-sm" variant="ghost">
+                    Store <IconChevronDownFill aria-hidden="true" className="text-stone-300" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-48" sideOffset={8}>
+                  <DropdownMenuLabel>Online Store</DropdownMenuLabel>
 
-                <DropdownMenuGroup className="rounded-md bg-card">
-                  <DropdownMenuItem>
-                    <User />
-                    <span>Profile</span>
-                  </DropdownMenuItem>
+                  <DropdownMenuGroup className="rounded-md bg-card">
+                    <DropdownMenuItem>
+                      <User aria-hidden="true" />
+                      <span>Profile</span>
+                    </DropdownMenuItem>
 
-                  <DropdownMenuItem>
-                    <CreditCard />
-                    <span>Billing</span>
-                  </DropdownMenuItem>
-                </DropdownMenuGroup>
-                <DropdownMenuLabel>Retailers</DropdownMenuLabel>
+                    <DropdownMenuItem>
+                      <CreditCard aria-hidden="true" />
+                      <span>Billing</span>
+                    </DropdownMenuItem>
+                  </DropdownMenuGroup>
+                  <DropdownMenuLabel>Retailers</DropdownMenuLabel>
 
-                <DropdownMenuGroup className="rounded-md bg-card">
-                  <DropdownMenuItem>
-                    <User />
-                    <span>Dubai</span>
-                  </DropdownMenuItem>
+                  <DropdownMenuGroup className="rounded-md bg-card">
+                    <DropdownMenuItem>
+                      <User aria-hidden="true" />
+                      <span>Dubai</span>
+                    </DropdownMenuItem>
 
-                  <DropdownMenuItem>
-                    <CreditCard />
-                    <span>Abu Dhabi</span>
-                  </DropdownMenuItem>
-                </DropdownMenuGroup>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </li>
-        </menu>
+                    <DropdownMenuItem>
+                      <CreditCard aria-hidden="true" />
+                      <span>Abu Dhabi</span>
+                    </DropdownMenuItem>
+                  </DropdownMenuGroup>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
   );

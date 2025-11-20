@@ -6,14 +6,18 @@ import { cn } from "@/lib/utils";
 
 import { NAV_LINKS } from "./constant";
 
-interface Props extends HTMLAttributes<HTMLLIElement> {}
+const linkBaseClasses = "px-4 py-2 text-base font-medium";
 
-export const DesktopNavbar = ({ className, ...props }: Props) => {
+interface Props extends HTMLAttributes<HTMLUListElement> {
+  itemClassName?: string;
+}
+
+export const DesktopNavbar = ({ className, itemClassName, ...props }: Props) => {
   return (
-    <ul className="flex items-center gap-1">
+    <ul className={cn("flex items-center gap-1", className)} role="list" {...props}>
       {NAV_LINKS.map((link) => (
-        <li key={link.id} {...props} className={cn(className)}>
-          <Link className="px-4 py-2 font-medium text-base" href={link.href}>
+        <li key={link.id}>
+          <Link className={cn(linkBaseClasses, itemClassName)} href={link.href}>
             {link.title}
           </Link>
         </li>

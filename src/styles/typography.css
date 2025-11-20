@@ -2,22 +2,22 @@
   --text-title-1: 4.5rem;
   --text-title-1--line-height: 1.12;
   --text-title-1--letter-spacing: -0.02em;
-  --text-title-1--font-weight: 600;
+  --text-title-1--font-weight: 500;
 
   --text-title-2: 3rem;
   --text-title-2--line-height: 1.16;
   --text-title-2--letter-spacing: -0.02em;
-  --text-title-2--font-weight: 600;
+  --text-title-2--font-weight: 500;
 
   --text-title-3: 2.5rem;
   --text-title-3--line-height: 1.16;
   --text-title-3--letter-spacing: -0.015em;
-  --text-title-3--font-weight: 600;
+  --text-title-3--font-weight: 500;
 
   --text-title-4: 2rem;
   --text-title-4--line-height: 1.25;
   --text-title-4--letter-spacing: -0.01em;
-  --text-title-4--font-weight: 600;
+  --text-title-4--font-weight: 500;
 
   --text-title-5: 1.5rem;
   --text-title-5--line-height: 1.33;
@@ -73,7 +73,7 @@
   --text-base--letter-spacing: -0.025rem;
 
   --text-sm--line-height: 1.5;
-  --text-sm--letter-spacing: -0.0175rem;
+  --text-sm--letter-spacing: -0.025rem;
 
   --text-xs--line-height: 1.33;
   --text-xs--letter-spacing: -0.012rem;
@@ -81,6 +81,7 @@
   --text-lead: 1.125rem;
   --text-lead--line-height: 1.75;
   --text-lead--letter-spacing: -0.015rem;
+  --text-lead--font-weight: 300;
 
   --text-badge: 0.75rem;
   --text-badge--line-height: 1;
@@ -91,4 +92,19 @@
   --text-label--line-height: 1;
   --text-label--letter-spacing: -0.02rem;
   --text-label--font-weight: 500;
+}
+
+@layer typography {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
+
+  strong {
+    @apply font-display;
+  }
 }
