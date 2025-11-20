@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { IconBox } from "@/components/ui/icon-box";
 
-import { IconPlay, IconRocket, IconShield, IconSparkle, IconWorld } from "@/assets/icons";
+import { IconChevronRight, IconPlay, IconRocket, IconShield, IconSparkle, IconWorld } from "@/assets/icons";
 import { Wordmark } from "@/assets/logo";
 
 export default function Home() {
@@ -16,8 +16,9 @@ export default function Home() {
             <h1 className="max-w-2xl text-title-1">Power that moves with you.</h1>
 
             <div className="mt-4 flex items-center gap-3">
-              <Button className="bg-teal-50 text-teal-700 hover:bg-card" size="lg">
-                Explore Products
+              <Button className="group bg-teal-50 text-teal-700 hover:bg-card" size="lg">
+                Explore Products{" "}
+                <IconChevronRight className="size-2.5 transition-transform delay-100 duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1" />
               </Button>
               <Button className="backdrop-blur-md" size="lg" variant="ghost">
                 Where to Buy
