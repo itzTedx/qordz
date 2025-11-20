@@ -8,32 +8,44 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
   --font-display: var(--font-display);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
 
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
-
   --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-brand-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-2xl: var(--shadow-2xl);
+  --shadow-3xl: var(--shadow-3xl);
 }
 
 :root {
@@ -61,50 +73,50 @@
   --ring: oklch(0.709 0.01 56.259);
 
   --shadow-xs:
-    0 2px 4px 0.5px color-mix(in oklab, var(--primary-900) 7%, transparent), 0 4px 8px -1.5px
-    color-mix(in oklab, var(--primary-900) 6%, transparent);
+    0 2px 4px 0.5px color-mix(in oklab, var(--color-teal-950) 7%, transparent), 0 4px 8px -1.5px
+    color-mix(in oklab, var(--color-teal-950) 6%, transparent);
 
-  --shadow-sm:
-    0 0 0 1px color-mix(in oklab, var(--primary-900) 6%, transparent),
-    0 1px 1px 0.5px color-mix(in oklab, var(--primary-900) 4%, transparent),
-    0 3px 3px -1.5px color-mix(in oklab, var(--primary-900) 4%, transparent),
-    0 6px 9px -4.5px color-mix(in oklab, var(--primary-900) 4%, transparent),
-    0 12px 16px -8px color-mix(in oklab, var(--primary-900) 4%, transparent);
+  --shadow-brand-sm:
+    0 0 0 1px color-mix(in oklab, var(--color-stone-500) 6%, transparent),
+    0 1px 1px 0.5px color-mix(in oklab, var(--color-teal-950) 4%, transparent),
+    0 3px 3px -1.5px color-mix(in oklab, var(--color-teal-950) 4%, transparent),
+    0 6px 9px -4.5px color-mix(in oklab, var(--color-teal-950) 4%, transparent),
+    0 12px 16px -8px color-mix(in oklab, var(--color-teal-950) 4%, transparent);
 
   --shadow-md:
-    0 0 0 1px color-mix(in oklab, oklch(55.3% 0.013 58.071) 10%, transparent),
-    0 1px 1px -0.5px color-mix(in oklab, var(--primary-950) 6%, transparent),
-    0 3px 3px -1.5px color-mix(in oklab, var(--primary-900) 4%, transparent),
-    0 6px 6px -3px color-mix(in oklab, var(--primary-900) 4%, transparent),
-    0 12px 12px -6px color-mix(in oklab, var(--primary-900) 4%, transparent),
-    0 16px 16px -8px color-mix(in oklab, var(--primary-900) 4%, transparent),
-    0 32px 32px -16px color-mix(in oklab, var(--primary-900) 2%, transparent);
+    0 0 0 1px color-mix(in oklab, var(--color-stone-500) 10%, transparent),
+    0 1px 1px -0.5px color-mix(in oklab, var(--color-teal-950) 6%, transparent),
+    0 3px 3px -1.5px color-mix(in oklab, var(--color-teal-950) 4%, transparent),
+    0 6px 6px -3px color-mix(in oklab, var(--color-teal-950) 4%, transparent),
+    0 12px 12px -6px color-mix(in oklab, var(--color-teal-950) 4%, transparent),
+    0 16px 16px -8px color-mix(in oklab, var(--color-teal-950) 4%, transparent),
+    0 32px 32px -16px color-mix(in oklab, var(--color-teal-950) 2%, transparent);
 
   --shadow-lg:
-    0 0 0 1px color-mix(in oklab, oklch(55.3% 0.013 58.071) 10%, transparent),
-    0 1px 1px -0.5px color-mix(in oklab, var(--primary-950) 8%, transparent),
-    0 3px 3px -1.5px color-mix(in oklab, var(--primary-900) 6%, transparent),
-    0 6px 6px -3px color-mix(in oklab, var(--primary-900) 6%, transparent),
-    0 12px 12px -6px color-mix(in oklab, var(--primary-900) 6%, transparent),
-    0 16px 16px -8px color-mix(in oklab, var(--primary-900) 6%, transparent),
-    0 32px 32px -16px color-mix(in oklab, var(--primary-900) 4%, transparent),
-    0 48px 48px -24px color-mix(in oklab, var(--primary-900) 4%, transparent),
-    0 64px 64px -32px color-mix(in oklab, var(--primary-900) 4%, transparent);
+    0 0 0 1px color-mix(in oklab, var(--color-stone-500) 10%, transparent),
+    0 1px 1px -0.5px color-mix(in oklab, var(--color-teal-950) 8%, transparent),
+    0 3px 3px -1.5px color-mix(in oklab, var(--color-teal-950) 6%, transparent),
+    0 6px 6px -3px color-mix(in oklab, var(--color-teal-950) 6%, transparent),
+    0 12px 12px -6px color-mix(in oklab, var(--color-teal-950) 6%, transparent),
+    0 16px 16px -8px color-mix(in oklab, var(--color-teal-950) 6%, transparent),
+    0 32px 32px -16px color-mix(in oklab, var(--color-teal-950) 4%, transparent),
+    0 48px 48px -24px color-mix(in oklab, var(--color-teal-950) 4%, transparent),
+    0 64px 64px -32px color-mix(in oklab, var(--color-teal-950) 4%, transparent);
 
   --shadow-2xl:
-    0 0 0 1px color-mix(in oklab, oklch(55.3% 0.013 58.071) 10%, transparent),
-    0 5px 10px -5px color-mix(in oklab, var(--primary-950) 25%, transparent),
-    0 18px 18px -9px color-mix(in oklab, var(--primary-900) 20%, transparent),
-    0 40px 24px -12px color-mix(in oklab, var(--primary-900) 15%, transparent),
-    0 70px 30px -15px color-mix(in oklab, var(--primary-900) 5%, transparent),
-    0 114px 32px -16px color-mix(in oklab, var(--primary-900) 0%, transparent);
+    0 0 0 1px color-mix(in oklab, var(--color-stone-500) 10%, transparent),
+    0 5px 10px -5px color-mix(in oklab, var(--color-teal-950) 25%, transparent),
+    0 18px 18px -9px color-mix(in oklab, var(--color-teal-950) 20%, transparent),
+    0 40px 24px -12px color-mix(in oklab, var(--color-teal-950) 15%, transparent),
+    0 70px 30px -15px color-mix(in oklab, var(--color-teal-950) 5%, transparent),
+    0 114px 32px -16px color-mix(in oklab, var(--color-teal-950) 0%, transparent);
 
   --shadow-3xl:
-    0 6px 12px -2px color-mix(in oklab, var(--primary-950) 48%, transparent),
-    0 22px 22px -4px color-mix(in oklab, var(--primary-900) 42%, transparent),
-    0 52px 30px -6px color-mix(in oklab, var(--primary-900) 25%, transparent),
-    0 93px 38px -7px color-mix(in oklab, var(--primary-900) 7%, transparent),
-    0 145px 40px -10px color-mix(in oklab, var(--primary-900) 1%, transparent);
+    0 6px 12px -2px color-mix(in oklab, var(--color-teal-950) 48%, transparent),
+    0 22px 22px -4px color-mix(in oklab, var(--color-teal-950) 42%, transparent),
+    0 52px 30px -6px color-mix(in oklab, var(--color-teal-950) 25%, transparent),
+    0 93px 38px -7px color-mix(in oklab, var(--color-teal-950) 7%, transparent),
+    0 145px 40px -10px color-mix(in oklab, var(--color-teal-950) 1%, transparent);
 }
 
 @layer base {

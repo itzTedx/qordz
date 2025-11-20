@@ -1,7 +1,9 @@
 import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { IconBox } from "@/components/ui/icon-box";
+import { Magnetic } from "@/components/ui/magnetic";
 
 import { IconChevronRight, IconPlay, IconRocket, IconShield, IconSparkle, IconWorld } from "@/assets/icons";
 import { Wordmark } from "@/assets/logo";
@@ -9,6 +11,7 @@ import { Wordmark } from "@/assets/logo";
 import { CATEGORIES } from "@/data/categories";
 import { FEATURED_PRODUCTS } from "@/data/products";
 import { cn } from "@/lib/utils";
+import { ProductCard } from "@/modules/products/components/product-card";
 
 export default function Home() {
   return (
@@ -32,7 +35,7 @@ export default function Home() {
 
           <div className="relative z-10 flex flex-col items-end justify-end gap-6 py-10">
             <div className="flex flex-col items-center justify-center gap-4">
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3">
                 <IconBox>
                   <IconRocket className="size-6 text-teal-500" />
                 </IconBox>
@@ -48,15 +51,17 @@ export default function Home() {
               </div>
 
               {/* Video Card */}
-              <div className="card group relative flex aspect-video h-36 items-center justify-center rounded-xl bg-teal-950 shadow-2xl transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]">
-                <div className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 rounded-full bg-card/10 p-1 backdrop-blur-lg transition-transform delay-100 duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-125">
-                  <div className="flex size-7 items-center justify-center rounded-full bg-card/20 shadow-lg backdrop-blur-lg transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105">
-                    <IconPlay className="size-5 text-card" />
+              <Magnetic>
+                <div className="card group relative flex aspect-video h-36 items-center justify-center rounded-xl bg-teal-950 shadow-2xl transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]">
+                  <div className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 rounded-full bg-card/10 p-1 backdrop-blur-lg transition-transform delay-100 duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-125">
+                    <div className="flex size-7 items-center justify-center rounded-full bg-card/20 shadow-lg backdrop-blur-lg transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105">
+                      <IconPlay className="size-5 text-card" />
+                    </div>
                   </div>
-                </div>
 
-                <Wordmark className="h-auto w-[80%] text-teal-400" />
-              </div>
+                  <Wordmark className="h-auto w-[80%] text-teal-400" />
+                </div>
+              </Magnetic>
             </div>
 
             {/* Progress Bar */}
@@ -144,17 +149,30 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <section className="py-20">
-        <header className="container grid max-w-7xl grid-cols-2 gap-12">
-          <div className="space-y-3">
-            <h2 className="text-teal-600 text-title-2">Explore Our Products</h2>
-          </div>
-          <p className="text-lead text-stone-600">
-            Qordz offers a complete range of charging accessories and smart mobile essentials. Browse our featured
-            lineup crafted to keep your devices connected, fast, and ready for anything.
-          </p>
-        </header>
-      </section>
+      <div className="overflow-hidden">
+        <section className="container max-w-7xl py-20">
+          <header className="grid grid-cols-2 gap-12">
+            <div className="space-y-3">
+              <h2 className="text-teal-600 text-title-2">Explore Our Products</h2>
+            </div>
+            <p className="text-lead text-stone-600">
+              Qordz offers a complete range of charging accessories and smart mobile essentials. Browse our featured
+              lineup crafted to keep your devices connected, fast, and ready for anything.
+            </p>
+          </header>
+          <Carousel className="mt-9">
+            <CarouselContent>
+              {Array.from({ length: 12 }).map((_, index) => (
+                <CarouselItem className="md:basis-1/2 lg:basis-1/3" key={`carousel-item-${index + 1}`}>
+                  <div className="p-1">
+                    <ProductCard />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        </section>
+      </div>
     </main>
   );
 }

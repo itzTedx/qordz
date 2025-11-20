@@ -1,6 +1,14 @@
 import { Chivo_Mono } from "next/font/google";
 import localFont from "next/font/local";
 
+export const currency = localFont({
+  variable: "--font-currency",
+  display: "swap",
+  preload: true,
+  fallback: ["system-ui", "arial"],
+  src: "./currency.woff2",
+});
+
 export const acidGrotesk = localFont({
   variable: "--font-display",
   display: "swap",

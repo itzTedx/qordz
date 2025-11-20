@@ -4,7 +4,7 @@ import "@/styles/globals.css";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 
-import { acidGrotesk, sfPro } from "@/assets/fonts";
+import { acidGrotesk, mono, sfPro } from "@/assets/fonts";
 
 import { cn } from "@/lib/utils";
 
@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(sfPro.className, acidGrotesk.variable, "antialiased")}>
+      <body className={cn(sfPro.className, mono.variable, acidGrotesk.variable, "antialiased")}>
         <Navbar />
         {children}
         <Footer />
