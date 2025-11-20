@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 
-import { NAV_LINKS } from "./constant";
+import { NAV_LINKS } from "../constant";
 
 const linkBaseClasses = "px-4 py-2 text-base font-medium";
 
