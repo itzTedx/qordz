@@ -75,7 +75,7 @@ export const HomeHero = () => {
 
       <Image
         alt="Airtune Lite"
-        className="md:-top-10 -translate-y-1/2 pointer-events-none absolute top-1/2 right-0"
+        className="md:-top-10 -translate-y-1/2 pointer-events-none absolute top-1/2 right-0 md:translate-y-0"
         height={876}
         src="/images/qordz-airtune.webp"
         width={1080}

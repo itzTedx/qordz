@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
@@ -24,18 +25,20 @@ export default function Home() {
           </p>
         </header>
 
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-3 md:gap-4">
           {FEATURED_PRODUCTS.map((product) => (
             <div
               className={cn(
                 "group relative flex overflow-hidden rounded-xl",
-                product.isFeatured ? "col-span-2 items-center" : "aspect-8/9 text-center"
+                product.isFeatured
+                  ? "aspect-video items-center md:col-span-2 md:aspect-auto"
+                  : "aspect-7/8 justify-center text-center md:aspect-8/9"
               )}
               key={product.id}
             >
               <div className="relative z-10 max-w-md p-12">
-                <h3 className="text-teal-600 text-title-4">{product.name}</h3>
-                <p className="mb-3 text-balance text-base">{product.description}</p>
+                <h3 className="text-teal-600 text-title-5 md:text-title-4">{product.name}</h3>
+                <p className="mb-3 text-balance text-base md:text-lg">{product.description}</p>
                 <Button size="sm" variant="ghost">
                   Learn more
                 </Button>
@@ -51,9 +54,9 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <div className="overflow-hidden">
-        <section className="container max-w-7xl py-20">
-          <header className="grid grid-cols-2 gap-12">
+      <section className="overflow-hidden">
+        <div className="container max-w-7xl py-20">
+          <header className="grid gap-4 md:grid-cols-2 md:gap-12">
             <div className="space-y-3">
               <h2 className="text-teal-600 text-title-2">Explore Our Products</h2>
             </div>
@@ -73,8 +76,24 @@ export default function Home() {
               ))}
             </CarouselContent>
           </Carousel>
-        </section>
-      </div>
+        </div>
+      </section>
+      <section className="rounded-t-4xl bg-muted py-12">
+        <div className="container max-w-7xl">
+          <div className="grid grid-cols-2 gap-6">
+            <h2 className="text-title-2">Designed for Performance. Built for Life.</h2>
+            <Badge>BRAND STORY</Badge>
+          </div>
+
+          <p className="font-semibold text-xl">
+            Qordz is committed to creating reliable, high-quality mobile accessories that elevate everyday life.
+          </p>
+          <p className="text-xl">
+            Our products are engineered with precision, using durable materials, advanced charging technology, and
+            modern design ensuring you stay connected wherever life takes you.
+          </p>
+        </div>
+      </section>
     </main>
   );
 }
