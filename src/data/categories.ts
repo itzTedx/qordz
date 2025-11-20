@@ -1,4 +1,4 @@
-import { Accessories, Adapters, Cables, Earbuds, PowerBank } from "@/assets/icons/categories";
+import { Accessories, Adaptors, Cables, Earbuds, PowerBank } from "@/assets/icons/categories";
 
 export const CATEGORIES = [
   {
@@ -18,8 +18,8 @@ export const CATEGORIES = [
   },
   {
     id: 4,
-    label: "Adapters",
-    Icon: Adapters,
+    label: "Adaptors",
+    Icon: Adaptors,
   },
   {
     id: 5,

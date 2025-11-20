@@ -385,7 +385,7 @@ export const Cables = (props: SVGProps) => {
   );
 };
 
-export const Adapters = (props: SVGProps) => {
+export const Adaptors = (props: SVGProps) => {
   return (
     <svg {...props} fill="none" height="140" viewBox="0 0 140 140" width="140" xmlns="http://www.w3.org/2000/svg">
       <g clipPath="url(#clip0_203_5145)">
