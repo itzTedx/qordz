@@ -111,42 +111,42 @@ export default function ProductsPage() {
           <AnimatedTabsContent value="all">
             {PRODUCTS.map((product) => (
               <div className="p-1" key={product.id}>
-                <ProductCard />
+                <ProductCard data={product} />
               </div>
             ))}
           </AnimatedTabsContent>
           <AnimatedTabsContent value="earbuds">
-            {PRODUCTS.map((product) => (
+            {PRODUCTS.filter((product) => slugify(product.category) === "earbuds").map((product) => (
               <div className="p-1" key={product.id}>
-                <ProductCard />
+                <ProductCard data={product} />
               </div>
             ))}
           </AnimatedTabsContent>
           <AnimatedTabsContent value="power-bank">
-            {PRODUCTS.map((product) => (
+            {PRODUCTS.filter((product) => slugify(product.category) === "power-bank").map((product) => (
               <div className="p-1" key={product.id}>
-                <ProductCard />
+                <ProductCard data={product} />
               </div>
             ))}
           </AnimatedTabsContent>
           <AnimatedTabsContent value="charging-cables">
-            {PRODUCTS.map((product) => (
+            {PRODUCTS.filter((product) => slugify(product.category) === "charging-cables").map((product) => (
               <div className="p-1" key={product.id}>
-                <ProductCard />
+                <ProductCard data={product} />
               </div>
             ))}
           </AnimatedTabsContent>
           <AnimatedTabsContent value="adapters">
-            {PRODUCTS.map((product) => (
+            {PRODUCTS.filter((product) => slugify(product.category) === "adapters").map((product) => (
               <div className="p-1" key={product.id}>
-                <ProductCard />
+                <ProductCard data={product} />
               </div>
             ))}
           </AnimatedTabsContent>
           <AnimatedTabsContent value="mobile-accessories">
-            {PRODUCTS.map((product) => (
+            {PRODUCTS.filter((product) => slugify(product.category) === "mobile-accessories").map((product) => (
               <div className="p-1" key={product.id}>
-                <ProductCard />
+                <ProductCard data={product} />
               </div>
             ))}
           </AnimatedTabsContent>
