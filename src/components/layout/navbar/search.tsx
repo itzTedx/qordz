@@ -4,11 +4,8 @@ import * as React from "react";
 
 import { useRouter } from "next/navigation";
 
-import { cva } from "class-variance-authority";
-import { CornerDownLeftIcon } from "lucide-react";
-
 import { Button } from "@/components/ui/button";
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandList } from "@/components/ui/command";
 import {
   Dialog,
   DialogContent,
@@ -25,13 +22,15 @@ import { cn } from "@/lib/utils";
 
 import { ACTION_HINT, SEARCH_SECTIONS } from "../constant";
 import { SearchAction, SearchActionType } from "../types";
+import { CommandMenuFooter } from "./components/command-footer";
+import { CommandMenuItem } from "./components/command-item";
 
 export function CommandMenu() {
   const router = useRouter();
   const [open, setOpen] = React.useState(false);
   const [query, setQuery] = React.useState("");
   const [activeType, setActiveType] = React.useState<SearchActionType>("category");
-  const [activeHint, setActiveHint] = React.useState<string>(ACTION_HINT.category);
+  const [activeHint, setActiveHint] = React.useState<string>();
 
   const handleSelect = React.useCallback(
     (item: SearchAction) => {
@@ -81,7 +80,7 @@ export function CommandMenu() {
         <AnimateIcon animateOnHover>
           <Button
             aria-label="Open search"
-            className="border-transparent bg-transparent"
+            className="border-transparent bg-transparent backdrop-blur-none hover:bg-muted"
             onClick={() => setOpen(true)}
             size="icon-sm"
             variant="ghost"
@@ -123,7 +122,11 @@ export function CommandMenu() {
                   heading={section.heading}
                   key={section.id}
                 >
-                  <div className={cn(isCategories && "grid grid-cols-5 gap-1")}>
+                  <div
+                    className={cn(
+                      isCategories && "flex flex-wrap gap-2 sm:grid sm:grid-cols-3 sm:gap-1 md:grid-cols-5"
+                    )}
+                  >
                     {section.items.map((item) => {
                       return (
                         <CommandMenuItem
@@ -172,79 +175,8 @@ function CommandMenuCategoryItemContent({ item }: { item: SearchAction }) {
 
   return (
     <>
-      <ItemIcon className="size-9 shrink-0" />
-      <span className="text-center font-medium text-xs">{item.label}</span>
+      <ItemIcon className="size-7 shrink-0 md:size-9" />
+      <span className="font-medium sm:text-center sm:text-xs">{item.label}</span>
     </>
-  );
-}
-
-const commandMenuItemVariants = cva("items-center gap-3", {
-  variants: {
-    variant: {
-      default:
-        "h-11 rounded-md border border-transparent px-3 font-medium transition data-[selected=true]:border-input data-[selected=true]:bg-input/50",
-
-      secondary:
-        "aspect-4/3 flex-col justify-center gap-3 border bg-accent data-[selected=true]:bg-primary data-[selected=true]:text-primary-foreground data-[selected=true]:shadow-md",
-    },
-  },
-  defaultVariants: {
-    variant: "default",
-  },
-});
-
-function CommandMenuItem({
-  children,
-  variant,
-  className,
-  onHighlight,
-  onFocus,
-  onMouseEnter,
-  ...props
-}: React.ComponentProps<typeof CommandItem> & {
-  variant?: "default" | "secondary";
-  onHighlight?: () => void;
-}) {
-  return (
-    <CommandItem
-      className={cn(commandMenuItemVariants({ variant }), className)}
-      onFocus={(event) => {
-        onHighlight?.();
-        onFocus?.(event);
-      }}
-      onMouseEnter={(event) => {
-        onHighlight?.();
-        onMouseEnter?.(event);
-      }}
-      {...props}
-    >
-      {children}
-    </CommandItem>
-  );
-}
-
-function CommandMenuFooter({ hint, type }: { hint: string; type: SearchActionType }) {
-  return (
-    <div className="absolute inset-x-0 bottom-0 z-20 flex h-10 items-center gap-2 rounded-b-xl border-t border-t-neutral-100 bg-neutral-50 px-4 text-muted-foreground text-xs dark:border-t-neutral-700 dark:bg-neutral-800">
-      <div className="flex items-center gap-2 font-medium">
-        <CommandMenuKbd>
-          <CornerDownLeftIcon />
-        </CommandMenuKbd>
-        {ACTION_HINT[type]}
-      </div>
-      <span className="ml-auto text-[0.625rem]">{hint}</span>
-    </div>
-  );
-}
-
-function CommandMenuKbd({ className, ...props }: React.ComponentProps<"kbd">) {
-  return (
-    <kbd
-      className={cn(
-        "pointer-events-none flex h-5 select-none items-center justify-center gap-1 rounded border bg-background px-1 font-medium font-sans text-[0.7rem] text-muted-foreground [&_svg:not([class*='size-'])]:size-3",
-        className
-      )}
-      {...props}
-    />
   );
 }

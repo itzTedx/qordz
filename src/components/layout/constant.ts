@@ -13,17 +13,17 @@ import { FooterLink, NavLink, SearchAction, SearchActionType, SearchSection, Soc
 export const NAV_LINKS: NavLink[] = [
   {
     id: 1,
-    title: "Power Banks",
+    title: "Earbuds",
     href: "/",
   },
   {
     id: 2,
-    title: "Charging Cables",
+    title: "Power Bank",
     href: "/",
   },
   {
     id: 3,
-    title: "TWS Earbuds",
+    title: "Charging Cables",
     href: "/",
   },
   {
@@ -51,12 +51,12 @@ export const FOOTER_LINKS: FooterLink[] = [
       {
         id: 2,
         title: "Products",
-        href: "/",
+        href: "/products",
       },
       {
         id: 3,
         title: "Where to Buy",
-        href: "/",
+        href: "/where-to-buy",
       },
       {
         id: 4,
@@ -77,7 +77,7 @@ export const FOOTER_LINKS: FooterLink[] = [
   },
   {
     id: 2,
-    label: "Products",
+    label: "Shop",
     links: NAV_LINKS,
   },
   {

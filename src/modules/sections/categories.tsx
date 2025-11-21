@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { AnimatedGroup } from "@/components/ui/animated-group";
 import { Button } from "@/components/ui/button";
 
@@ -14,9 +16,11 @@ export const Categories = () => {
           <p className="text-balance text-lead text-stone-600">
             From fast-charging cables to powerful TWS audio - everything designed for performance.
           </p>
-          <Button className="group" variant="ghost">
-            Browse All Products{" "}
-            <IconChevronRight className="size-2.5 transition-transform delay-100 duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1" />
+          <Button asChild className="group" variant="ghost">
+            <Link href="/products">
+              Browse All Products{" "}
+              <IconChevronRight className="size-2.5 transition-transform delay-100 duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1" />
+            </Link>
           </Button>
         </div>
       </header>

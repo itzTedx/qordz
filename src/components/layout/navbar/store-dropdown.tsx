@@ -26,12 +26,12 @@ export const StoreDropdown = () => {
         <DropdownMenuGroup className="rounded-md bg-card">
           <DropdownMenuItem>
             <User aria-hidden="true" />
-            <span>Profile</span>
+            <span>Noon</span>
           </DropdownMenuItem>
 
           <DropdownMenuItem>
             <CreditCard aria-hidden="true" />
-            <span>Billing</span>
+            <span>Amazon</span>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuLabel>Retailers</DropdownMenuLabel>
@@ -45,6 +45,10 @@ export const StoreDropdown = () => {
           <DropdownMenuItem>
             <CreditCard aria-hidden="true" />
             <span>Abu Dhabi</span>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <CreditCard aria-hidden="true" />
+            <span>Sharjah</span>
           </DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>

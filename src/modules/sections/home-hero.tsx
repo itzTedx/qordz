@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { Button } from "@/components/ui/button";
 import { IconBox } from "@/components/ui/icon-box";
 import { Magnetic } from "@/components/ui/magnetic";
@@ -17,12 +19,14 @@ export const HomeHero = () => {
 
           <div className="mt-4 flex items-center gap-3">
             {/* <Button className="group bg-teal-50 text-teal-700 hover:bg-card" size="lg"> */}
-            <Button size="lg" variant="secondary">
-              Explore Products{" "}
-              <IconChevronRight className="size-2.5 transition-transform delay-100 duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1" />
+            <Button asChild size="lg" variant="secondary">
+              <Link href="/products">
+                Explore Products{" "}
+                <IconChevronRight className="size-2.5 transition-transform delay-100 duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1" />
+              </Link>
             </Button>
-            <Button className="backdrop-blur-md" size="lg" variant="ghost">
-              Where to Buy
+            <Button asChild className="backdrop-blur-md" size="lg" variant="ghost">
+              <Link href="/where-to-buy">Where to Buy</Link>
             </Button>
           </div>
         </div>
