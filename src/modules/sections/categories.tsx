@@ -48,12 +48,12 @@ export const Categories = () => {
           },
         }}
       >
-        {CATEGORIES.map(({ Icon, ...category }) => (
+        {CATEGORIES.map(({ Image, ...category }) => (
           <div
             className="group card flex aspect-square flex-col items-center justify-center gap-4 rounded-xl bg-card p-3 shadow-sm transition-[box-shadow_transform] duration-300 hover:bg-teal-400 hover:shadow-lg md:p-4"
             key={category.id}
           >
-            <Icon className="size-20 text-stone-700 group-hover:text-teal-900 md:size-24 lg:size-32" />
+            <Image className="size-20 text-stone-700 group-hover:text-teal-900 md:size-24 lg:size-32" />
             <h3 className="text-sm md:text-base">{category.label}</h3>
           </div>
         ))}

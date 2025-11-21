@@ -1,8 +1,14 @@
-import type { JSX } from "react";
+import { Route } from "next";
 
-import type { Route } from "next";
+import { MailIcon } from "lucide-react";
 
-import { IconSocialFacebook, IconSocialInstagram, IconSocialX } from "@/assets/icons";
+import { IconPhone, IconSocialFacebook, IconSocialInstagram, IconSocialX } from "@/assets/icons";
+
+import { CATEGORIES } from "@/data/categories";
+import { FEATURED_PRODUCTS } from "@/data/products";
+import { slugify } from "@/lib/utils";
+
+import { FooterLink, NavLink, SearchAction, SearchActionType, SearchSection, Social } from "./types";
 
 export const NAV_LINKS: NavLink[] = [
   {
@@ -136,20 +142,53 @@ export const SOCIAL: Social[] = [
   },
 ];
 
-export interface Social {
-  id: number;
-  href: Route;
-  Icon: (props: SVGProps) => JSX.Element;
-}
+export const ACTION_HINT: Record<SearchActionType, string> = {
+  action: "Run quick action",
+  category: "Open category",
+  product: "View product details",
+};
 
-export interface FooterLink {
-  id: number;
-  label: string;
-  links: NavLink[];
-}
+export const QUICK_ACTIONS: SearchAction[] = [
+  {
+    id: "support-email",
+    label: "Contact support",
+    description: "Send email to support@qordz.com",
+    type: "action",
+    externalHref: "mailto:support@qordz.com",
+    Icon: MailIcon,
+  },
+  {
+    id: "sales-call",
+    label: "Call sales",
+    description: "Call +971-XXX-XXXXXX",
+    type: "action",
+    externalHref: "tel:+971-XXX-XXXXXX",
+    Icon: IconPhone,
+  },
+];
 
-export interface NavLink {
-  id: number;
-  title: string;
-  href: Route;
-}
+export const CATEGORY_ACTIONS: SearchAction[] = CATEGORIES.map(({ id, label, Icon }) => ({
+  id: `category-${id}`,
+  label,
+  description: `${label} category`,
+  type: "category",
+  href: `/products/${slugify(label)}` as Route,
+  keywords: [label.toLowerCase(), "category", "catalog"],
+  Icon,
+}));
+
+export const PRODUCT_ACTIONS: SearchAction[] = FEATURED_PRODUCTS.map(({ Icon, ...product }) => ({
+  id: `product-${product.id}`,
+  label: product.name,
+  description: product.description,
+  type: "product",
+  href: `/products/${slugify(product.name)}` as Route,
+  keywords: [product.name.toLowerCase(), "featured", "product"],
+  Icon,
+}));
+
+export const SEARCH_SECTIONS: SearchSection[] = [
+  { id: "categories", heading: "Browse categories", items: CATEGORY_ACTIONS },
+  { id: "featured-products", heading: "Featured devices", items: PRODUCT_ACTIONS },
+  { id: "quick-actions", heading: "Quick actions", items: QUICK_ACTIONS },
+].filter((section) => section.items.length > 0);

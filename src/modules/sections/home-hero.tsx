@@ -13,9 +13,7 @@ export const HomeHero = () => {
       <div className="container relative flex min-h-[calc(100svh-4rem-1px)] max-w-7xl flex-col justify-between text-teal-950 md:min-h-auto">
         <div className="relative z-10 pt-8 sm:pt-12 md:pt-16 lg:pt-20">
           <p className="font-display text-lead-sm md:text-lead">Introducing Airtune Lite</p>
-          <h1 className="max-w-2xl text-title-4 sm:text-title-3 md:text-title-2 lg:text-title-1">
-            Power that moves with you.
-          </h1>
+          <h1 className="max-w-2xl text-title-2 md:text-title-1">Power that moves with you.</h1>
 
           <div className="mt-4 flex items-center gap-3">
             {/* <Button className="group bg-teal-50 text-teal-700 hover:bg-card" size="lg"> */}
@@ -31,7 +29,7 @@ export const HomeHero = () => {
 
         <div className="relative z-10 flex flex-col items-end justify-end gap-6 py-10">
           <div className="flex flex-col items-center justify-center gap-4">
-            <div className="flex items-center gap-3">
+            <div className="hidden items-center gap-3 md:flex">
               <IconBox>
                 <IconRocket className="size-6 text-teal-500" />
               </IconBox>
@@ -48,7 +46,7 @@ export const HomeHero = () => {
 
             {/* Video Card */}
             <Magnetic>
-              <div className="card group relative flex aspect-video h-36 items-center justify-center rounded-xl bg-teal-950 shadow-2xl transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]">
+              <div className="card group relative flex aspect-video h-28 items-center justify-center rounded-xl bg-teal-950 shadow-2xl transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] md:h-36">
                 <div className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 rounded-full bg-card/10 p-1 backdrop-blur-lg transition-transform delay-100 duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-125">
                   <div className="flex size-7 items-center justify-center rounded-full bg-card/20 shadow-lg backdrop-blur-lg transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105">
                     <IconPlay className="size-5 text-card" />
@@ -62,11 +60,11 @@ export const HomeHero = () => {
 
           {/* Progress Bar */}
           <div className="flex items-center gap-4">
-            <div className="card flex h-1 w-24 cursor-pointer items-center rounded-full bg-stone-500/15 p-px backdrop-blur-md transition-all duration-300 hover:bg-stone-300/50 md:w-32">
+            <div className="card flex h-1 w-16 cursor-pointer items-center rounded-full bg-stone-500/15 p-px backdrop-blur-md transition-all duration-300 hover:bg-stone-300/50 md:w-32">
               <div className="h-full w-1/2 rounded-full bg-card" />
             </div>
-            <div className="card h-1 w-24 cursor-pointer rounded-full bg-stone-500/15 backdrop-blur-md transition-all duration-300 hover:bg-stone-300/50 md:w-32" />
-            <div className="card h-1 w-24 cursor-pointer rounded-full bg-stone-500/15 backdrop-blur-md transition-all duration-300 hover:bg-stone-300/50 md:w-32" />
+            <div className="card h-1 w-16 cursor-pointer rounded-full bg-stone-500/15 backdrop-blur-md transition-all duration-300 hover:bg-stone-300/50 md:w-32" />
+            <div className="card h-1 w-16 cursor-pointer rounded-full bg-stone-500/15 backdrop-blur-md transition-all duration-300 hover:bg-stone-300/50 md:w-32" />
           </div>
         </div>
 

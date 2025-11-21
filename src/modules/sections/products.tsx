@@ -5,7 +5,7 @@ import { ProductCard } from "../products/components/product-card";
 export const Products = () => {
   return (
     <section className="overflow-hidden">
-      <div className="container max-w-7xl py-12 sm:py-16 md:py-20">
+      <div className="container max-w-7xl py-8 sm:py-12 md:py-16 lg:py-20">
         <header className="grid gap-3 sm:gap-6 md:grid-cols-2 md:gap-12">
           <h2 className="text-teal-600 text-title-4 md:text-title-3 lg:text-title-2">Explore Our Products</h2>
 

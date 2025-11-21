@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 
 export const FeaturedProducts = () => {
   return (
-    <section className="container max-w-7xl space-y-8 py-20">
+    <section className="container max-w-7xl space-y-8 py-8 sm:py-12 md:py-20">
       <header className="text-center">
         <Shuffle
           className="text-teal-600 text-title-2"

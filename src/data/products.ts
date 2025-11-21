@@ -1,3 +1,5 @@
+import { IconAccessories, IconAdapter, IconCable, IconEarbuds, IconPowerBank } from "@/assets/icons";
+
 export const FEATURED_PRODUCTS = [
   {
     id: 1,
@@ -5,6 +7,7 @@ export const FEATURED_PRODUCTS = [
     description: "Ultra-strong, fast-charging cables for every device.",
     image: "/images/featured/charging-cables.webp",
     isFeatured: false,
+    Icon: IconCable,
   },
   {
     id: 2,
@@ -12,6 +15,7 @@ export const FEATURED_PRODUCTS = [
     description: "Crystal-clear audio with enhanced comfort.",
     image: "/images/featured/tws-earbuds.webp",
     isFeatured: false,
+    Icon: IconEarbuds,
   },
   {
     id: 3,
@@ -19,6 +23,7 @@ export const FEATURED_PRODUCTS = [
     description: "Practical add-ons for better connectivity and convenience.",
     image: "/images/featured/mobile-accessories.webp",
     isFeatured: false,
+    Icon: IconAccessories,
   },
   {
     id: 4,
@@ -26,6 +31,7 @@ export const FEATURED_PRODUCTS = [
     description: "Compact power solutions for longer days on the go.",
     image: "/images/featured/power-bank.webp",
     isFeatured: true,
+    Icon: IconPowerBank,
   },
   {
     id: 5,
@@ -33,5 +39,6 @@ export const FEATURED_PRODUCTS = [
     description: "Smart, efficient chargers for all environments.",
     image: "/images/featured/adaptor.webp",
     isFeatured: false,
+    Icon: IconAdapter,
   },
 ];
