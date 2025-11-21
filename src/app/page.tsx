@@ -1,17 +1,17 @@
 import Image from "next/image";
 
 import { Cta } from "@/components/layout/cta";
+import Shuffle from "@/components/shuffle-text";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
 import { IconInfo, IconPhone, IconShield } from "@/assets/icons";
 
 import { FEATURED_PRODUCTS } from "@/data/products";
 import { cn } from "@/lib/utils";
-import { ProductCard } from "@/modules/products/components/product-card";
 import { Categories } from "@/modules/sections/categories";
 import { HomeHero } from "@/modules/sections/home-hero";
+import { Products } from "@/modules/sections/products";
 
 export default function Home() {
   return (
@@ -20,8 +20,16 @@ export default function Home() {
       <Categories />
 
       <section className="container max-w-7xl space-y-8 py-20">
-        <header className="space-y-2 text-center">
-          <h2 className="text-teal-600 text-title-2">Engineered for Better Performance.</h2>
+        <header className="text-center">
+          <Shuffle
+            className="text-teal-600 text-title-2"
+            duration={0.15}
+            tag="h2"
+            text="Engineered for Better Performance."
+            triggerOnce={true}
+            triggerOnHover={true}
+          />
+          {/* <h2 className="text-teal-600 text-title-2">Engineered for Better Performance.</h2> */}
 
           <p className="text-lead text-stone-600">
             Discover our latest innovations crafted to keep you connected without limits.
@@ -57,30 +65,9 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <section className="overflow-hidden">
-        <div className="container max-w-7xl py-20">
-          <header className="grid gap-4 md:grid-cols-2 md:gap-12">
-            <div className="space-y-3">
-              <h2 className="text-teal-600 text-title-2">Explore Our Products</h2>
-            </div>
-            <p className="text-lead text-stone-600">
-              Qordz offers a complete range of charging accessories and smart mobile essentials. Browse our featured
-              lineup crafted to keep your devices connected, fast, and ready for anything.
-            </p>
-          </header>
-          <Carousel className="mt-9">
-            <CarouselContent>
-              {Array.from({ length: 12 }).map((_, index) => (
-                <CarouselItem className="md:basis-1/2 lg:basis-1/3" key={`carousel-item-${index + 1}`}>
-                  <div className="p-1">
-                    <ProductCard />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
-        </div>
-      </section>
+
+      <Products />
+
       <section className="rounded-t-4xl bg-muted pt-12">
         <div className="container max-w-7xl pb-12">
           <div className="grid grid-cols-2 gap-6">

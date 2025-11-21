@@ -9,7 +9,7 @@ export const Cta = () => {
           <p className="mb-6 font-medium text-lg text-stone-400">
             Qordz products are available online and at leading retail stores across the region.
           </p>
-          <Button variant="secondary">Find out where to buy</Button>
+          <Button>Find out where to buy</Button>
         </div>
       </div>
     </section>

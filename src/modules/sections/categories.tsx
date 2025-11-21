@@ -20,7 +20,7 @@ export const Categories = () => {
         </div>
       </header>
 
-      <div className="grid grid-cols-3 gap-2 sm:gap-3 md:grid-cols-5 md:gap-4">
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 md:grid-cols-5 md:gap-4">
         {CATEGORIES.map(({ Icon, ...category }) => (
           <div
             className="group card flex aspect-square flex-col items-center justify-center gap-4 rounded-xl bg-card p-3 shadow-sm transition-[box-shadow_transform] duration-300 hover:bg-teal-400 hover:shadow-lg md:p-4"

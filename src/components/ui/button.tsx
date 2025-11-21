@@ -10,7 +10,10 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default:
+          "border border-teal-900/40 border-b-2 bg-gradient-to-t from-teal-700 to-teal-600 text-teal-50 shadow-md shadow-teal-900/20 ring-1 ring-card/25 ring-inset ring-offset-background transition-[filter_transform] duration-300 hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:brightness-90 disabled:pointer-events-none disabled:opacity-60",
+        // default:
+        //   "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-[inset_0_2px_0_rgba(255,255,255,0.4),_inset_0_-2px_0_rgba(0,0,0,0.3)]",
         destructive:
           "bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:bg-destructive/60 dark:focus-visible:ring-destructive/40",
         outline:
