@@ -9,7 +9,7 @@ export const ProductCard = () => {
   return (
     <Card>
       <CardContent>
-        <div className="relative aspect-4/3">
+        <div className="relative aspect-16/11 md:aspect-4/3">
           <Image alt="Product 1" className="object-cover" fill src="/images/products/qordz-prime-powerbank.webp" />
         </div>
         <CardHeader className="text-teal-600">
@@ -23,12 +23,8 @@ export const ProductCard = () => {
         </CardHeader>
       </CardContent>
       <CardFooter className="gap-2">
-        <Button className="w-full flex-1" size="sm">
-          Shop now
-        </Button>
-        <Button size="sm" variant="ghost">
-          Learn more
-        </Button>
+        <Button className="w-full flex-1">Shop now</Button>
+        <Button variant="ghost">Learn more</Button>
       </CardFooter>
     </Card>
   );

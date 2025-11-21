@@ -2,6 +2,24 @@ import { AnimatedGroup } from "@/components/ui/animated-group";
 
 import { IconInfo, IconPhone, IconShield } from "@/assets/icons";
 
+const COMMUNITY_ITEMS = [
+  {
+    icon: IconShield,
+    title: "Reliable Warranty",
+    description: "Every Qordz product comes with a worry-free warranty and guaranteed support.",
+  },
+  {
+    icon: IconInfo,
+    title: "Help & Support",
+    description: "Access instant answers, product guides, and dedicated customer care whenever you need it.",
+  },
+  {
+    icon: IconPhone,
+    title: "Contact Us",
+    description: "Have questions? Our team is here to assist. Email us anytime at support@qordz.com",
+  },
+];
+
 export const Community = () => {
   return (
     <section className="container max-w-6xl py-12 text-center">
@@ -14,7 +32,8 @@ export const Community = () => {
       <AnimatedGroup
         as="ul"
         asChild="li"
-        className="grid grid-cols-3 gap-6 py-10"
+        className="grid grid-cols-2 gap-3 py-10 md:grid-cols-3 md:gap-6"
+        itemClassName="last:col-span-2 md:last:col-span-1"
         variants={{
           container: {
             hidden: { opacity: 0 },
@@ -40,27 +59,16 @@ export const Community = () => {
           },
         }}
       >
-        <div className="card flex flex-col items-center justify-center rounded-3xl bg-card px-6 py-10 shadow-md transition-all hover:shadow-lg">
-          <IconShield className="size-16 text-stone-400" />
-          <h4 className="mt-6 text-teal-900 text-title-6">Reliable Warranty</h4>
-          <p className="mt-1 font-light text-sm text-stone-500">
-            Every Qordz product comes with a worry-free warranty and guaranteed replacement support.
-          </p>
-        </div>
-        <div className="card flex flex-col items-center justify-center rounded-3xl bg-card px-6 py-10 shadow-md transition-all hover:shadow-lg">
-          <IconInfo className="size-16 text-stone-400" />
-          <h4 className="mt-6 text-teal-900 text-title-6">Help & Support</h4>
-          <p className="mt-1 font-light text-sm text-stone-500">
-            Access instant answers, product guides, and dedicated customer care whenever you need it.
-          </p>
-        </div>
-        <div className="card flex flex-col items-center justify-center rounded-3xl bg-card px-6 py-10 shadow-md transition-all hover:shadow-lg">
-          <IconPhone className="size-16 text-stone-400" />
-          <h4 className="mt-6 text-teal-900 text-title-6">Contact Us</h4>
-          <p className="mt-1 font-light text-sm text-stone-500">
-            Have questions? Our team is here to assist. Email us anytime at support@qordz.com
-          </p>
-        </div>
+        {COMMUNITY_ITEMS.map(({ icon: Icon, title, description }) => (
+          <div
+            className="card flex flex-col items-center justify-center rounded-3xl bg-card px-6 py-6 shadow-md transition-all hover:shadow-lg md:py-10"
+            key={title}
+          >
+            <Icon className="size-9 text-stone-400 sm:size-12 md:size-16" />
+            <h4 className="mt-4 text-teal-900 text-title-6 md:mt-6">{title}</h4>
+            <p className="mt-1 font-light text-stone-500 text-xs md:text-sm">{description}</p>
+          </div>
+        ))}
       </AnimatedGroup>
       <p className="text-lg text-stone-500">
         Our team provides clear guidance, fast assistance, and reliable warranty service for all your Qordz devices.

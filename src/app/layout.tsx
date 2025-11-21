@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 
+import { BreakpointIndicator } from "@/components/dev/breakpoint-ind";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 
@@ -24,6 +25,11 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+
+        <BreakpointIndicator />
+
+        {/* Live region for screen reader announcements */}
+        <div aria-atomic="true" aria-live="polite" className="sr-only" id="live-region" />
       </body>
     </html>
   );

@@ -8,15 +8,15 @@ import { SocialChips } from "./footer/social-chip";
 
 export const Footer = () => {
   return (
-    <footer className="relative flex flex-col gap-y-48 overflow-hidden bg-foreground py-16 text-muted">
-      <div className="container relative grid max-w-7xl grid-cols-3 gap-4">
-        <div className="flex flex-col justify-between">
+    <footer className="relative flex flex-col gap-y-20 overflow-hidden bg-foreground py-10 text-muted sm:gap-y-28 sm:py-12 md:gap-y-36 md:py-14 lg:gap-y-48 lg:py-16">
+      <div className="container relative grid max-w-7xl gap-6 md:grid-cols-3 md:gap-4">
+        <div className="flex justify-between md:flex-col">
           <Logo />
           <SocialChips />
         </div>
         <AnimatedGroup
           as="nav"
-          className="col-span-2 grid grid-cols-4 gap-4"
+          className="grid grid-cols-2 gap-4 md:col-span-2 md:grid-cols-4"
           variants={{
             container: {
               hidden: { opacity: 0 },
@@ -60,7 +60,7 @@ export const Footer = () => {
         </AnimatedGroup>
       </div>
       <p className="text-center text-sm text-stone-400">© 2025 Qordz. All Rights Reserved.</p>
-      <Wordmark className="-translate-x-1/2 -bottom-12 mask-b-to-70% absolute left-1/2 text-teal-400/10" />
+      <Wordmark className="-translate-x-1/2 -bottom-6 md:-bottom-12 mask-b-to-70% absolute left-1/2 h-auto w-full text-teal-400/10 md:w-auto" />
     </footer>
   );
 };

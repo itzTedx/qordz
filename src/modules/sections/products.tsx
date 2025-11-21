@@ -5,12 +5,11 @@ import { ProductCard } from "../products/components/product-card";
 export const Products = () => {
   return (
     <section className="overflow-hidden">
-      <div className="container max-w-7xl py-20">
-        <header className="grid gap-4 md:grid-cols-2 md:gap-12">
-          <div className="space-y-3">
-            <h2 className="text-teal-600 text-title-2">Explore Our Products</h2>
-          </div>
-          <p className="text-lead text-stone-600">
+      <div className="container max-w-7xl py-12 sm:py-16 md:py-20">
+        <header className="grid gap-3 sm:gap-6 md:grid-cols-2 md:gap-12">
+          <h2 className="text-teal-600 text-title-4 md:text-title-3 lg:text-title-2">Explore Our Products</h2>
+
+          <p className="text-lead-sm text-stone-600 md:text-lead">
             Qordz offers a complete range of charging accessories and smart mobile essentials. Browse our featured
             lineup crafted to keep your devices connected, fast, and ready for anything.
           </p>

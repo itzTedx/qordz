@@ -14,7 +14,7 @@ interface Props extends HTMLAttributes<HTMLUListElement> {
 
 export const DesktopNavbar = ({ className, itemClassName, ...props }: Props) => {
   return (
-    <ul className={cn("flex items-center gap-1", className)} role="list" {...props}>
+    <ul className={cn("hidden items-center gap-1 md:flex", className)} role="list" {...props}>
       {NAV_LINKS.map((link) => (
         <li key={link.id}>
           <Link className={cn(linkBaseClasses, itemClassName)} href={link.href}>
