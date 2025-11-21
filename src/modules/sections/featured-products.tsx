@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import Shuffle from "@/components/shuffle-text";
+import { AnimatedGroup } from "@/components/ui/animated-group";
 import { Button } from "@/components/ui/button";
 
 import { FEATURED_PRODUCTS } from "@/data/products";
@@ -25,13 +26,40 @@ export const FeaturedProducts = () => {
         </p>
       </header>
 
-      <div className="grid grid-cols-1 gap-3 md:grid-cols-3 md:gap-4">
+      <AnimatedGroup
+        className="grid grid-cols-1 gap-3 md:grid-cols-3 md:gap-4"
+        itemClassName="md:nth-[4]:col-span-2 nth-[4]:aspect-video nth-[4]:items-center "
+        variants={{
+          container: {
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.25,
+              },
+            },
+          },
+          item: {
+            hidden: { opacity: 0, y: 40, filter: "blur(4px)" },
+            visible: {
+              opacity: 1,
+              y: 0,
+              filter: "blur(0px)",
+              transition: {
+                duration: 0.75,
+                type: "spring",
+                bounce: 0.3,
+              },
+            },
+          },
+        }}
+      >
         {FEATURED_PRODUCTS.map((product) => (
           <div
             className={cn(
               "group relative flex overflow-hidden rounded-xl",
               product.isFeatured
-                ? "aspect-video items-center md:col-span-2 md:aspect-auto"
+                ? "aspect-video items-center md:col-span-2"
                 : "aspect-7/8 justify-center text-center md:aspect-8/9"
             )}
             key={product.id}
@@ -52,7 +80,7 @@ export const FeaturedProducts = () => {
             />
           </div>
         ))}
-      </div>
+      </AnimatedGroup>
     </section>
   );
 };

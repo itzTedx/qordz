@@ -88,16 +88,16 @@ export const Navbar = () => {
           y: visible ? 0 : -80,
         }}
         className={cn(
-          "fixed top-0 z-999 flex w-full items-center justify-center backdrop-blur-xl transition-all duration-700",
+          "fixed inset-x-2 top-2 z-999 flex items-center justify-center rounded-md backdrop-blur-xl transition-all duration-700",
           isScrolled
-            ? "border-b bg-[radial-gradient(transparent_1px,#fff)] bg-card/80 bg-size-[4px_4px]"
-            : "bg-[radial-gradient(transparent_1px,transparent)] bg-linear-to-b from-teal-500 to-transparent"
+            ? "border-b bg-[radial-gradient(transparent_1px,#fff)] bg-card/90 bg-size-[4px_4px]"
+            : "bg-[radial-gradient(transparent_1px,transparent)]"
         )}
         initial={{
           y: 0,
         }}
         transition={{
-          duration: 0.2,
+          duration: 0.1,
         }}
       >
         <div className="container relative z-999 flex max-w-7xl items-center justify-between py-3">
@@ -125,7 +125,7 @@ export const Navbar = () => {
                   <Button
                     aria-label="Open search"
                     className="border-transparent bg-transparent"
-                    size="icon"
+                    size="icon-sm"
                     variant="ghost"
                   >
                     <IconSearch aria-hidden="true" />
@@ -133,7 +133,12 @@ export const Navbar = () => {
                 </AnimateIcon>
               </li>
               <li>
-                <Button className="rounded-full border-transparent bg-transparent" type="button" variant="ghost">
+                <Button
+                  className="rounded-full border-transparent bg-transparent"
+                  size="sm"
+                  type="button"
+                  variant="ghost"
+                >
                   About us
                 </Button>
               </li>

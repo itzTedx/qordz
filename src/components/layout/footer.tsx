@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { Logo, Wordmark } from "@/assets/logo";
 
+import { AnimatedGroup } from "../ui/animated-group";
 import { FOOTER_LINKS } from "./constant";
 import { SocialChips } from "./footer/social-chip";
 
@@ -13,7 +14,34 @@ export const Footer = () => {
           <Logo />
           <SocialChips />
         </div>
-        <nav className="col-span-2 grid grid-cols-4 gap-4">
+        <AnimatedGroup
+          as="nav"
+          className="col-span-2 grid grid-cols-4 gap-4"
+          variants={{
+            container: {
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.05,
+                },
+              },
+            },
+            item: {
+              hidden: { opacity: 0, y: 40, filter: "blur(4px)" },
+              visible: {
+                opacity: 1,
+                y: 0,
+                filter: "blur(0px)",
+                transition: {
+                  duration: 0.75,
+                  type: "spring",
+                  bounce: 0.3,
+                },
+              },
+            },
+          }}
+        >
           {FOOTER_LINKS.map((footer) => (
             <div className="space-y-5" key={footer.id}>
               <h4 className="text-label text-teal-700">{footer.label}</h4>
@@ -29,7 +57,7 @@ export const Footer = () => {
               </ul>
             </div>
           ))}
-        </nav>
+        </AnimatedGroup>
       </div>
       <p className="text-center text-sm text-stone-400">© 2025 Qordz. All Rights Reserved.</p>
       <Wordmark className="-translate-x-1/2 -bottom-12 mask-b-to-70% absolute left-1/2 text-teal-400/10" />

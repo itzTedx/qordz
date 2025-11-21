@@ -16,7 +16,7 @@ export const DesktopNavbar = ({ className, itemClassName, ...props }: Props) => 
   return (
     <ul className={cn("flex items-center gap-1", className)} role="list" {...props}>
       {NAV_LINKS.map((link) => (
-        <li className="h-10 overflow-hidden" key={link.id}>
+        <li key={link.id}>
           <Link className={cn(linkBaseClasses, itemClassName)} href={link.href}>
             {link.title}
           </Link>

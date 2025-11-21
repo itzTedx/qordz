@@ -1,11 +1,11 @@
-import Image from "next/image";
-
 import { Button } from "@/components/ui/button";
 import { IconBox } from "@/components/ui/icon-box";
 import { Magnetic } from "@/components/ui/magnetic";
 
 import { IconChevronRight, IconPlay, IconRocket, IconShield, IconSparkle, IconWorld } from "@/assets/icons";
 import { Wordmark } from "@/assets/logo";
+
+import { ParallaxImage } from "./components/parallax-image";
 
 export const HomeHero = () => {
   return (
@@ -19,7 +19,7 @@ export const HomeHero = () => {
 
           <div className="mt-4 flex items-center gap-3">
             {/* <Button className="group bg-teal-50 text-teal-700 hover:bg-card" size="lg"> */}
-            <Button size="lg">
+            <Button size="lg" variant="secondary">
               Explore Products{" "}
               <IconChevronRight className="size-2.5 transition-transform delay-100 duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1" />
             </Button>
@@ -74,13 +74,7 @@ export const HomeHero = () => {
         <Wordmark className="md:-bottom-20 -translate-x-1/2 -bottom-9 pointer-events-none absolute left-1/2 z-0 h-auto w-full text-teal-50/30" />
       </div>
 
-      <Image
-        alt="Airtune Lite"
-        className="md:-top-10 -translate-y-1/2 pointer-events-none absolute top-1/2 right-0 md:translate-y-0"
-        height={876}
-        src="/images/qordz-airtune.webp"
-        width={1080}
-      />
+      <ParallaxImage />
     </header>
   );
 };

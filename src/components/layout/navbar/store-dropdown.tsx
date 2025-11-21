@@ -16,7 +16,7 @@ export const StoreDropdown = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button aria-label="Browse store" className="rounded-full bg-card shadow-sm" variant="ghost">
+        <Button aria-label="Browse store" className="rounded-full bg-card shadow-sm" size="sm" variant="ghost">
           Store <IconChevronDownFill aria-hidden="true" className="text-stone-300" />
         </Button>
       </DropdownMenuTrigger>

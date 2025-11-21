@@ -1,3 +1,4 @@
+import { AnimatedGroup } from "@/components/ui/animated-group";
 import { Button } from "@/components/ui/button";
 
 import { IconChevronRight } from "@/assets/icons";
@@ -20,7 +21,33 @@ export const Categories = () => {
         </div>
       </header>
 
-      <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 md:grid-cols-5 md:gap-4">
+      <AnimatedGroup
+        className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 md:grid-cols-5 md:gap-4"
+        variants={{
+          container: {
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.1,
+              },
+            },
+          },
+          item: {
+            hidden: { opacity: 0, y: 40, filter: "blur(4px)" },
+            visible: {
+              opacity: 1,
+              y: 0,
+              filter: "blur(0px)",
+              transition: {
+                duration: 0.75,
+                type: "spring",
+                bounce: 0.3,
+              },
+            },
+          },
+        }}
+      >
         {CATEGORIES.map(({ Icon, ...category }) => (
           <div
             className="group card flex aspect-square flex-col items-center justify-center gap-4 rounded-xl bg-card p-3 shadow-sm transition-[box-shadow_transform] duration-300 hover:bg-teal-400 hover:shadow-lg md:p-4"
@@ -30,7 +57,7 @@ export const Categories = () => {
             <h3 className="text-sm md:text-base">{category.label}</h3>
           </div>
         ))}
-      </div>
+      </AnimatedGroup>
     </section>
   );
 };
