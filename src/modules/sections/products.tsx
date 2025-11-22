@@ -1,5 +1,7 @@
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
+import { PRODUCTS } from "@/data/products";
+
 import { ProductCard } from "../products/components/product-card";
 
 export const Products = () => {
@@ -16,10 +18,10 @@ export const Products = () => {
         </header>
         <Carousel className="mt-9">
           <CarouselContent>
-            {Array.from({ length: 12 }).map((_, index) => (
+            {PRODUCTS.map((product, index) => (
               <CarouselItem className="md:basis-1/2 lg:basis-1/3" key={`carousel-item-${index + 1}`}>
                 <div className="p-1">
-                  <ProductCard />
+                  <ProductCard data={product} />
                 </div>
               </CarouselItem>
             ))}
