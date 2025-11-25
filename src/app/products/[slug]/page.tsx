@@ -191,6 +191,45 @@ export default async function ProductPage({ params }: PageProps<"/products/[slug
             />
           </div>
         </div>
+
+        <article className="mt-12">
+          <h3 className="text-teal-800 text-title-1">
+            <span className="text-stone-700 text-title-3">Everyday comfort,</span>
+            <br />
+            Everyday music.
+          </h3>
+          <p className="text-2xl">
+            Experience pure wireless freedom with Qordz AirTune Lite, the perfect companion for music lovers,
+            multitaskers, and everyday commuters. Designed for comfort and engineered for clarity, these earbuds blend
+            premium sound performance with an ultra-lightweight build making them ideal for all-day wear.
+            <br />
+            Whether you're taking calls, listening to playlists, or navigating your day, AirTune Lite delivers
+            consistent audio quality, quick touch controls, and long-lasting playtime.
+          </p>
+        </article>
+
+        <ul className="container grid max-w-6xl grid-cols-5 gap-4 *:flex *:aspect-square *:flex-col *:items-center *:justify-center *:gap-2 *:rounded-xl *:bg-card *:p-6 *:text-center *:font-medium *:text-lg *:leading-snug">
+          <li className="">
+            <Image alt="Smart Touch Controls" height={72} src="/icons/touch.svg" width={72} />
+            <p>Smart Touch Controls</p>
+          </li>
+          <li>
+            <Image alt="20-Hour Total Playtime" height={72} src="/icons/battery-charging.svg" width={72} />
+            <p>20-Hour Total Playtime</p>
+          </li>
+          <li>
+            <Image alt="IPX4 Water-Resistant" height={72} src="/icons/umbrella.svg" width={72} />
+            <p>IPX4 Water-Resistant</p>
+          </li>
+          <li>
+            <Image alt="Bluetooth 5.3 Connectivity" height={72} src="/icons/bluetooth.svg" width={72} />
+            <p>Bluetooth 5.3 Connectivity</p>
+          </li>
+          <li>
+            <Image alt="Bluetooth 5.3 Connectivity" height={72} src="/icons/touch.svg" width={72} />
+            <p>Bluetooth 5.3 Connectivity</p>
+          </li>
+        </ul>
       </section>
       <section id={TABS[1].href}>
         <h2 className="my-6 text-center text-teal-800 text-title-5 md:text-title-4 lg:text-title-3">Specifications</h2>
