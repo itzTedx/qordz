@@ -19,7 +19,7 @@ export const ProductCard = ({ data }: Props) => {
   return (
     <Card className="relative">
       <Link className="absolute inset-0 z-10" href={`/products/${slugify(data.name)}`} />
-      <CardContent>
+      <CardContent className="overflow-hidden">
         <div className="relative aspect-16/11 md:aspect-4/3">
           <Image alt={data.name ?? "Product Image"} className="object-cover" fill src={data.images[0]} />
         </div>
