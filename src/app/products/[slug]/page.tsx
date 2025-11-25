@@ -1,6 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { Cta } from "@/components/layout/cta";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -70,57 +72,68 @@ export default async function ProductPage({ params }: PageProps<"/products/[slug
             </p>
           </div>
 
-          <div className="space-y-1.5">
-            <h3 className="text-base text-stone-400">Key Features</h3>
-            <ul className="list-inside list-disc space-y-1.5">
-              <li>Lightweight ergonomic design</li>
-              <li>20 hours total playtime</li>
-              <li>Touch controls</li>
-              <li>Noise reduction mic for calls</li>
-            </ul>
-          </div>
+          <Button className="w-full">Shop now</Button>
 
-          <div className="space-y-1.5">
-            <h3 className="text-base text-stone-400">Specifications</h3>
-            <ul className="list-inside list-disc space-y-1.5">
-              <li>
-                <strong>Bluetooth Version:</strong> 5.3
-              </li>
-              <li>
-                <strong>Playtime:</strong> Up to 20 hours with case
-              </li>
-              <li>
-                <strong>Charging Case:</strong> USB-C fast charge
-              </li>
-              <li>
-                <strong>Control Type:</strong> Multi-function touch sensors
-              </li>
-              <li>
-                <strong>Microphone:</strong> Noise reduction ENC
-              </li>
-              <li>
-                <strong>Fit:</strong> Universal ergonomic design
-              </li>
-              <li>
-                <strong>Colors Available:</strong> White, Black
-              </li>
-            </ul>
-          </div>
-
-          <div className="space-y-1.5">
-            <h3 className="text-base text-stone-400">What’s in the Box</h3>
-            <ul className="list-inside list-disc space-y-1.5">
-              <li>1x Pair of Qordz AirTune Lite Earbuds</li>
-              <li>1x Charging Case</li>
-              <li>1x USB-C Cable</li>
-              <li>3x Ear Tip Sizes (S/M/L)</li>
-              <li>User Manual</li>
-            </ul>
-          </div>
           <Separator />
-          <div className="p-3">
-            <Button className="w-full">Shop now</Button>
-          </div>
+          <Accordion className="w-full" defaultValue={["key-features", "specifications"]} type="multiple">
+            <AccordionItem value="key-features">
+              <AccordionTrigger className="text-base text-stone-400">
+                <h3>Key Features</h3>
+              </AccordionTrigger>
+              <AccordionContent>
+                <ul className="list-inside list-disc space-y-1.5">
+                  <li>Lightweight ergonomic design</li>
+                  <li>20 hours total playtime</li>
+                  <li>Touch controls</li>
+                  <li>Noise reduction mic for calls</li>
+                </ul>
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="specifications">
+              <AccordionTrigger className="text-base text-stone-400">
+                <h3>Specifications</h3>
+              </AccordionTrigger>
+              <AccordionContent>
+                <ul className="list-inside list-disc space-y-1.5">
+                  <li>
+                    <strong>Bluetooth Version:</strong> 5.3
+                  </li>
+                  <li>
+                    <strong>Playtime:</strong> Up to 20 hours with case
+                  </li>
+                  <li>
+                    <strong>Charging Case:</strong> USB-C fast charge
+                  </li>
+                  <li>
+                    <strong>Control Type:</strong> Multi-function touch sensors
+                  </li>
+                  <li>
+                    <strong>Microphone:</strong> Noise reduction ENC
+                  </li>
+                  <li>
+                    <strong>Fit:</strong> Universal ergonomic design
+                  </li>
+                  <li>
+                    <strong>Colors Available:</strong> White, Black
+                  </li>
+                </ul>
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="whats-in-the-box">
+              <AccordionTrigger className="text-base text-stone-400">
+                <h3>What’s in the Box</h3>
+              </AccordionTrigger>
+              <AccordionContent>
+                <ul className="list-inside list-disc space-y-1.5">
+                  <li>1x Pair of Qordz AirTune Lite Earbuds</li>
+                  <li>1x Charging Case</li>
+                  <li>1x USB-C Cable</li>
+                  <li>3x Ear Tip Sizes (S/M/L)</li>
+                  <li>User Manual</li>
+                </ul>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
       </section>
 
@@ -168,8 +181,8 @@ export default async function ProductPage({ params }: PageProps<"/products/[slug
         </div>
 
         <div className="flex items-center justify-center">
-          <Button className="mt-6" variant="outline">
-            View More
+          <Button asChild className="mt-6 border-stone-400/50 bg-transparent shadow-none" variant="outline">
+            <Link href="/products">View More</Link>
           </Button>
         </div>
       </section>

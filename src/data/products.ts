@@ -106,7 +106,11 @@ export const PRODUCTS = [
         ],
       },
     ],
-    images: ["/products/airtune-lite-1.png", "/products/airtune-lite-2.png", "/products/airtune-lite-3.png"],
+    images: [
+      "/images/qordz-airtune.webp",
+      "/images/products/qordz-prime-powerbank.webp",
+      "/images/featured/tws-earbuds.webp",
+    ],
   },
 
   // ------------------------------
@@ -152,7 +156,7 @@ export const PRODUCTS = [
         ],
       },
     ],
-    images: ["/products/flexcharge-1.png"],
+    images: ["/images/products/qordz-prime-powerbank.webp"],
   },
 
   // ------------------------------
@@ -192,7 +196,7 @@ export const PRODUCTS = [
         ],
       },
     ],
-    images: ["/products/powercore-mini.png"],
+    images: ["/images/featured/tws-earbuds.webp"],
   },
 
   // ------------------------------
@@ -236,7 +240,7 @@ export const PRODUCTS = [
         ],
       },
     ],
-    images: ["/products/speedcharge-30w.png"],
+    images: ["/images/featured/adaptor.webp"],
   },
 
   // ------------------------------
@@ -303,7 +307,7 @@ export const PRODUCTS = [
         ],
       },
     ],
-    images: ["/products/airtune-pro-1.png", "/products/airtune-pro-2.png", "/products/airtune-pro-3.png"],
+    images: ["/images/featured/charging-cables.webp"],
   },
 
   // ------------------------------
@@ -368,7 +372,7 @@ export const PRODUCTS = [
         ],
       },
     ],
-    images: ["/products/airtune-basic-1.png", "/products/airtune-basic-2.png"],
+    images: ["/images/featured/mobile-accessories.webp"],
   },
 
   // ------------------------------
@@ -418,7 +422,7 @@ export const PRODUCTS = [
         ],
       },
     ],
-    images: ["/products/powercore-max-20000.png"],
+    images: ["/images/featured/power-bank.webp"],
   },
 
   // ------------------------------
@@ -468,7 +472,7 @@ export const PRODUCTS = [
         ],
       },
     ],
-    images: ["/products/powercore-nano-5000.png"],
+    images: ["/images/featured/tws-earbuds.webp"],
   },
 
   // ------------------------------
@@ -518,7 +522,7 @@ export const PRODUCTS = [
         ],
       },
     ],
-    images: ["/products/flexcharge-lightning-1.png", "/products/flexcharge-lightning-2.png"],
+    images: ["/images/featured/charging-cables.webp"],
   },
 
   // ------------------------------
@@ -567,7 +571,7 @@ export const PRODUCTS = [
         ],
       },
     ],
-    images: ["/products/flexcharge-usbc-3m.png"],
+    images: ["/images/featured/mobile-accessories.webp"],
   },
 
   // ------------------------------
@@ -617,7 +621,7 @@ export const PRODUCTS = [
         ],
       },
     ],
-    images: ["/products/speedcharge-65w.png"],
+    images: ["/images/products/overview/overview-1.jpg"],
   },
 
   // ------------------------------
@@ -667,7 +671,7 @@ export const PRODUCTS = [
         ],
       },
     ],
-    images: ["/products/speedcharge-wireless-15w.png"],
+    images: ["/images/products/overview/overview-2.jpg"],
   },
 
   // ------------------------------
@@ -715,7 +719,7 @@ export const PRODUCTS = [
         ],
       },
     ],
-    images: ["/products/speedcharge-car-36w.png"],
+    images: ["/images/products/overview/overview-3.jpg"],
   },
 
   // ------------------------------
@@ -758,7 +762,7 @@ export const PRODUCTS = [
         ],
       },
     ],
-    images: ["/products/stand-pro-adjustable.png"],
+    images: ["/images/products/overview/overview-4.jpg"],
   },
 
   // ------------------------------
@@ -800,7 +804,7 @@ export const PRODUCTS = [
         ],
       },
     ],
-    images: ["/products/mount-car-magnetic.png"],
+    images: ["/images/products/overview/overview-5.jpg"],
   },
 
   // ------------------------------
@@ -842,91 +846,6 @@ export const PRODUCTS = [
         ],
       },
     ],
-    images: ["/products/organizer-cable-clips.png"],
-  },
-
-  // ------------------------------
-  // 17. Screen Protector
-  // ------------------------------
-  {
-    id: "protector-tempered-glass",
-    name: "Qordz Tempered Glass Screen Protector",
-    category: CATEGORIES[4].label,
-    price: 19,
-    shortTagline: "Crystal clear protection.",
-    description:
-      "Premium tempered glass screen protector with 9H hardness, oleophobic coating, and bubble-free installation. Available for popular iPhone and Android models.",
-    features: [
-      {
-        title: "9H Hardness",
-        description: "Military-grade protection against scratches and drops.",
-      },
-      {
-        title: "Oleophobic Coating",
-        description: "Repels fingerprints and smudges for a cleaner screen.",
-      },
-      {
-        title: "Bubble-Free Installation",
-        description: "Easy application kit ensures perfect alignment.",
-      },
-      {
-        title: "Crystal Clear",
-        description: "99.9% transparency maintains original screen clarity.",
-      },
-    ],
-    specs: [
-      {
-        group: "General",
-        specs: [
-          { label: "Material", value: "Tempered Glass (0.33mm)" },
-          { label: "Hardness", value: "9H" },
-          { label: "Compatibility", value: "iPhone / Samsung / Popular Models" },
-          { label: "Quantity", value: "2-pack" },
-        ],
-      },
-    ],
-    images: ["/products/protector-tempered-glass.png"],
-  },
-
-  // ------------------------------
-  // 18. Phone Case
-  // ------------------------------
-  {
-    id: "case-protective-clear",
-    name: "Qordz Protective Clear Case",
-    category: CATEGORIES[4].label,
-    price: 24,
-    shortTagline: "Protection without hiding your phone.",
-    description:
-      "A clear protective case with shock-absorbing corners, raised edges, and anti-yellowing technology. Show off your phone's design while keeping it safe.",
-    features: [
-      {
-        title: "Shock Absorption",
-        description: "Reinforced corners protect against drops and impacts.",
-      },
-      {
-        title: "Anti-Yellowing",
-        description: "Special coating prevents yellowing over time.",
-      },
-      {
-        title: "Raised Edges",
-        description: "Protects screen and camera from scratches when placed down.",
-      },
-      {
-        title: "Precise Cutouts",
-        description: "Perfect fit with easy access to all ports and buttons.",
-      },
-    ],
-    specs: [
-      {
-        group: "General",
-        specs: [
-          { label: "Material", value: "TPU (Thermoplastic Polyurethane)" },
-          { label: "Compatibility", value: "iPhone / Samsung / Popular Models" },
-          { label: "Thickness", value: "1.2mm" },
-        ],
-      },
-    ],
-    images: ["/products/case-protective-clear.png"],
+    images: ["/images/products/overview/overview-6.jpg"],
   },
 ];
