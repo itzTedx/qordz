@@ -17,7 +17,7 @@ import { DesktopNavbar } from "./desktop";
 import { CommandMenu } from "./search";
 import { StoreDropdown } from "./store-dropdown";
 
-const SCROLL_THRESHOLD = 720;
+export const SCROLL_THRESHOLD = 720;
 
 export const Navbar = () => {
   const pathname = usePathname();

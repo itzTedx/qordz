@@ -1,6 +1,4 @@
-import { Route } from "next";
 import Image from "next/image";
-import Link from "next/link";
 
 import {
   Breadcrumb,
@@ -12,10 +10,9 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Currency } from "@/components/ui/currency";
-import { DescriptionDetails, DescriptionList, DescriptionTerm } from "@/components/ui/description-list";
 import { Separator } from "@/components/ui/separator";
 
-import { TABS } from "./data/constants";
+import { OverviewTabs } from "./components/overview-tabs";
 
 export default async function ProductPage({ params }: PageProps<"/products/[slug]">) {
   const { slug } = await params;
@@ -122,137 +119,12 @@ export default async function ProductPage({ params }: PageProps<"/products/[slug
           </div>
         </div>
       </section>
-      <nav>
-        <ul className="mx-auto flex w-fit items-center gap-1 rounded-full border border-stone-500/10 bg-muted p-1">
-          {TABS.map((tab) => (
-            <li key={tab.href}>
-              <Link
-                className="flex h-10 items-center justify-center rounded-full bg-card px-6 font-medium text-base text-stone-600 shadow-sm"
-                href={tab.href as Route}
-              >
-                {tab.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
-      <section id="overview">
-        <h2 className="my-6 text-center text-teal-800 text-title-5 md:text-title-4 lg:text-title-3">
-          Product Overview
-        </h2>
 
-        <div className="grid grid-cols-10 gap-2 *:relative *:overflow-hidden *:rounded-lg">
-          <div className="col-span-4">
-            <Image
-              alt="Qordz AirTune Lite"
-              className="object-cover"
-              fill
-              src="/images/products/overview/overview-1.jpg"
-            />
-          </div>
-          <div className="col-span-3 aspect-7/6">
-            <Image
-              alt="Qordz AirTune Lite"
-              className="object-cover"
-              fill
-              src="/images/products/overview/overview-2.jpg"
-            />
-          </div>
-          <div className="col-span-3 aspect-7/6">
-            <Image
-              alt="Qordz AirTune Lite"
-              className="object-cover"
-              fill
-              src="/images/products/overview/overview-3.jpg"
-            />
-          </div>
-          <div className="col-span-3 aspect-7/6">
-            <Image
-              alt="Qordz AirTune Lite"
-              className="object-cover"
-              fill
-              src="/images/products/overview/overview-4.jpg"
-            />
-          </div>
-          <div className="col-span-4">
-            <Image
-              alt="Qordz AirTune Lite"
-              className="object-cover"
-              fill
-              src="/images/products/overview/overview-5.jpg"
-            />
-          </div>
-          <div className="col-span-3 aspect-7/6">
-            <Image
-              alt="Qordz AirTune Lite"
-              className="object-cover"
-              fill
-              src="/images/products/overview/overview-6.jpg"
-            />
-          </div>
-        </div>
+      <OverviewTabs />
 
-        <article className="mt-12">
-          <h3 className="text-teal-800 text-title-1">
-            <span className="text-stone-700 text-title-3">Everyday comfort,</span>
-            <br />
-            Everyday music.
-          </h3>
-          <p className="text-2xl">
-            Experience pure wireless freedom with Qordz AirTune Lite, the perfect companion for music lovers,
-            multitaskers, and everyday commuters. Designed for comfort and engineered for clarity, these earbuds blend
-            premium sound performance with an ultra-lightweight build making them ideal for all-day wear.
-            <br />
-            Whether you're taking calls, listening to playlists, or navigating your day, AirTune Lite delivers
-            consistent audio quality, quick touch controls, and long-lasting playtime.
-          </p>
-        </article>
-
-        <ul className="container grid max-w-6xl grid-cols-5 gap-4 *:flex *:aspect-square *:flex-col *:items-center *:justify-center *:gap-2 *:rounded-xl *:bg-card *:p-6 *:text-center *:font-medium *:text-lg *:leading-snug">
-          <li className="">
-            <Image alt="Smart Touch Controls" height={72} src="/icons/touch.svg" width={72} />
-            <p>Smart Touch Controls</p>
-          </li>
-          <li>
-            <Image alt="20-Hour Total Playtime" height={72} src="/icons/battery-charging.svg" width={72} />
-            <p>20-Hour Total Playtime</p>
-          </li>
-          <li>
-            <Image alt="IPX4 Water-Resistant" height={72} src="/icons/umbrella.svg" width={72} />
-            <p>IPX4 Water-Resistant</p>
-          </li>
-          <li>
-            <Image alt="Bluetooth 5.3 Connectivity" height={72} src="/icons/bluetooth.svg" width={72} />
-            <p>Bluetooth 5.3 Connectivity</p>
-          </li>
-          <li>
-            <Image alt="Bluetooth 5.3 Connectivity" height={72} src="/icons/touch.svg" width={72} />
-            <p>Bluetooth 5.3 Connectivity</p>
-          </li>
-        </ul>
-      </section>
-      <section id={TABS[1].href}>
-        <h2 className="my-6 text-center text-teal-800 text-title-5 md:text-title-4 lg:text-title-3">Specifications</h2>
-        <DescriptionList>
-          <DescriptionTerm>Audio</DescriptionTerm>
-
-          <DescriptionDetails>
-            <ul>
-              <li>Driver Unit: 10 mm Dynamic Driver</li>
-
-              <li>Frequency Response Range: 20 Hz – 20 kHz</li>
-
-              <li>Audio Codec: SBC, AAC</li>
-
-              <li>Sound Profile: Balanced tuning with enhanced clarity</li>
-
-              <li>Call Technology: Noise-reduction microphone with voice enhancement</li>
-            </ul>
-          </DescriptionDetails>
-
-          <DescriptionTerm>Invoice Date</DescriptionTerm>
-          <DescriptionDetails>September 21, 2024</DescriptionDetails>
-        </DescriptionList>
+      <section className="mt-20">
+        <h2 className="text-teal-800 text-title-3">More from Inspire</h2>
+        <p className="text-lg text-stone-500">Expand the way to hear, feel, and enjoy.</p>
       </section>
     </main>
   );

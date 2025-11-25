@@ -1,10 +1,10 @@
 export const TABS = [
   {
-    href: "#overview",
+    href: "overview",
     label: "Overview",
   },
   {
-    href: "#specifications",
+    href: "specifications",
     label: "Specifications",
   },
 ];
