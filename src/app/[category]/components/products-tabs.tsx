@@ -28,6 +28,8 @@ export const ProductsTabs = ({ children }: Props) => {
   const pathname = usePathname();
   const router = useRouter();
 
+  const count = PRODUCTS.filter((product) => slugify(product.category) === pathname.split("/").pop() || "products");
+
   return (
     <Tabs
       defaultValue="products"
@@ -51,7 +53,7 @@ export const ProductsTabs = ({ children }: Props) => {
               </TabsTrigger>
             ))}
           </TabsList>
-          <span className="ml-3 text-sm text-stone-500"> {PRODUCTS.length} products</span>
+          <span className="ml-3 text-sm text-stone-500">{count.length} products</span>
         </div>
         <div className="flex items-center gap-1 rounded-full border bg-muted p-1">
           <div className="flex size-8 items-center justify-center">
