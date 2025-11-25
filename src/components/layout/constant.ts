@@ -14,27 +14,27 @@ export const NAV_LINKS: NavLink[] = [
   {
     id: 1,
     title: "Earbuds",
-    href: "/",
+    href: "/earbuds" as Route,
   },
   {
     id: 2,
     title: "Power Bank",
-    href: "/",
+    href: "/power-bank" as Route,
   },
   {
     id: 3,
     title: "Charging Cables",
-    href: "/",
+    href: "/charging-cables" as Route,
   },
   {
     id: 4,
     title: "Adapters",
-    href: "/",
+    href: "/adapters" as Route,
   },
   {
     id: 5,
     title: "Mobile Accessories",
-    href: "/",
+    href: "/mobile-accessories" as Route,
   },
 ];
 
@@ -51,7 +51,7 @@ export const FOOTER_LINKS: FooterLink[] = [
       {
         id: 2,
         title: "Products",
-        href: "/products",
+        href: "/products" as Route,
       },
       {
         id: 3,

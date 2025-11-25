@@ -20,28 +20,27 @@ import { ProductCard } from "@/modules/products/components/product-card";
 
 import { OverviewTabs } from "./components/overview-tabs";
 
-export default async function ProductPage({ params }: PageProps<"/products/[slug]">) {
-  const { slug } = await params;
+export default async function ProductPage({ params }: PageProps<"/[category]/[slug]">) {
+  const { category, slug } = await params;
 
   return (
     <main className="container max-w-7xl space-y-4 py-12 sm:py-16 md:py-20">
-      <header>
-        <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/">Home</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/products">Products</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>{slug}</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
-      </header>
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink href={category}>Products</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>{slug}</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+
       <section className="grid grid-cols-3 gap-9">
         <div className="sticky top-28 col-span-2 h-fit">
           <div className="relative aspect-6/4 overflow-hidden rounded-xl bg-card">

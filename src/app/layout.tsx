@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 
+import { NuqsAdapter } from "nuqs/adapters/next/app";
+
 import { BreakpointIndicator } from "@/components/dev/breakpoint-ind";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
@@ -22,9 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(sfPro.className, mono.variable, acidGrotesk.variable, "antialiased")}>
-        <Navbar />
-        {children}
-        <Footer />
+        <NuqsAdapter>
+          <Navbar />
+          {children}
+          <Footer />
+        </NuqsAdapter>
 
         <BreakpointIndicator />
 
