@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { Cta } from "@/components/layout/cta";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -11,6 +12,9 @@ import {
 import { Button } from "@/components/ui/button";
 import { Currency } from "@/components/ui/currency";
 import { Separator } from "@/components/ui/separator";
+
+import { PRODUCTS } from "@/data/products";
+import { ProductCard } from "@/modules/products/components/product-card";
 
 import { OverviewTabs } from "./components/overview-tabs";
 
@@ -123,9 +127,54 @@ export default async function ProductPage({ params }: PageProps<"/products/[slug
       <OverviewTabs />
 
       <section className="mt-20">
-        <h2 className="text-teal-800 text-title-3">More from Inspire</h2>
-        <p className="text-lg text-stone-500">Expand the way to hear, feel, and enjoy.</p>
+        <header className="mb-6 text-center">
+          <h2 className="text-teal-800 text-title-3">More from Inspire</h2>
+          <p className="text-lg text-stone-500">Expand the way to hear, feel, and enjoy.</p>
+        </header>
+
+        <div className="grid grid-cols-2 gap-6">
+          <div className="relative flex aspect-4/3 flex-col items-center overflow-hidden rounded-xl p-9 text-center">
+            <div className="relative z-10">
+              <h3 className="text-teal-600 text-title-4">Qordz Charging Cables</h3>
+              <p className="mb-4">Ultra-strong, fast-charging cables for every device.</p>
+              <Button variant="ghost">Shop Now</Button>
+            </div>
+            <Image
+              alt="Qordz Charging Cables"
+              className="object-cover"
+              fill
+              src="/images/featured/charging-cables.webp"
+            />
+          </div>
+          <div className="relative flex aspect-4/3 flex-col items-center overflow-hidden rounded-xl p-9 text-center">
+            <div className="relative z-10">
+              <h3 className="text-teal-600 text-title-4">Qordz Charging Cables</h3>
+              <p className="mb-4">Ultra-strong, fast-charging cables for every device.</p>
+              <Button variant="ghost">Shop Now</Button>
+            </div>
+            <Image alt="Qordz Charging Cables" className="object-cover" fill src="/images/featured/tws-earbuds.webp" />
+          </div>
+        </div>
       </section>
+      <section className="mt-20">
+        <header className="mb-6 text-center">
+          <h3 className="text-teal-600 text-title-4">You May Also Like</h3>
+        </header>
+
+        <div className="grid grid-cols-3 gap-4">
+          {PRODUCTS.splice(0, 3).map((product) => (
+            <ProductCard data={product} key={product.id} />
+          ))}
+        </div>
+
+        <div className="flex items-center justify-center">
+          <Button className="mt-6" variant="outline">
+            View More
+          </Button>
+        </div>
+      </section>
+
+      <Cta />
     </main>
   );
 }
