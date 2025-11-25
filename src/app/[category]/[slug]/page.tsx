@@ -32,7 +32,7 @@ export default async function ProductPage({ params }: PageProps<"/[category]/[sl
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href={category}>Products</BreadcrumbLink>
+            <BreadcrumbLink href={`/${category}`}>Products</BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
@@ -41,19 +41,19 @@ export default async function ProductPage({ params }: PageProps<"/[category]/[sl
         </BreadcrumbList>
       </Breadcrumb>
 
-      <section className="grid grid-cols-3 gap-9">
-        <div className="sticky top-28 col-span-2 h-fit">
+      <section className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-9">
+        <div className="h-fit lg:sticky lg:top-28 lg:col-span-2">
           <div className="relative aspect-6/4 overflow-hidden rounded-xl bg-card">
             <Image alt="Airtune Lite" className="object-contain" fill src="/images/qordz-airtune.webp" />
           </div>
         </div>
-        <div className="col-span-1 space-y-6">
+        <div className="space-y-6 lg:col-span-1">
           <div className="space-y-1.5">
             <h1 className="text-teal-600 text-title-5 md:text-title-4 lg:text-4xl lg:leading-snug">
               Qordz AirTune Lite Wireless Headphone
             </h1>
             <p className="text-base text-stone-600">Everyday comfort, everyday music.</p>
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3">
               <p className="font-display text-stone-800 text-title-4">
                 <Currency /> 79.99
               </p>
@@ -144,8 +144,8 @@ export default async function ProductPage({ params }: PageProps<"/[category]/[sl
           <p className="text-lg text-stone-500">Expand the way to hear, feel, and enjoy.</p>
         </header>
 
-        <div className="grid grid-cols-2 gap-6">
-          <div className="relative flex aspect-4/3 flex-col items-center overflow-hidden rounded-xl p-9 text-center">
+        <div className="grid gap-6 md:grid-cols-2">
+          <div className="relative flex aspect-4/3 flex-col items-center overflow-hidden rounded-xl p-6 text-center md:p-9">
             <div className="relative z-10">
               <h3 className="text-teal-600 text-title-4">Qordz Charging Cables</h3>
               <p className="mb-4">Ultra-strong, fast-charging cables for every device.</p>
@@ -158,7 +158,7 @@ export default async function ProductPage({ params }: PageProps<"/[category]/[sl
               src="/images/featured/charging-cables.webp"
             />
           </div>
-          <div className="relative flex aspect-4/3 flex-col items-center overflow-hidden rounded-xl p-9 text-center">
+          <div className="relative flex aspect-4/3 flex-col items-center overflow-hidden rounded-xl p-6 text-center md:p-9">
             <div className="relative z-10">
               <h3 className="text-teal-600 text-title-4">Qordz Charging Cables</h3>
               <p className="mb-4">Ultra-strong, fast-charging cables for every device.</p>
@@ -173,14 +173,14 @@ export default async function ProductPage({ params }: PageProps<"/[category]/[sl
           <h3 className="text-teal-600 text-title-4">You May Also Like</h3>
         </header>
 
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {PRODUCTS.splice(0, 3).map((product) => (
             <ProductCard data={product} key={product.id} />
           ))}
         </div>
 
-        <div className="flex items-center justify-center">
-          <Button asChild className="mt-6 border-stone-400/50 bg-transparent shadow-none" variant="outline">
+        <div className="mt-6 flex items-center justify-center">
+          <Button asChild className="border-stone-400/50 bg-transparent shadow-none" variant="outline">
             <Link href="/products">View More</Link>
           </Button>
         </div>
