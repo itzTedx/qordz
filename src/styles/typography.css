@@ -85,6 +85,6 @@
   }
 
   strong {
-    @apply font-display;
+    @apply font-medium;
   }
 }

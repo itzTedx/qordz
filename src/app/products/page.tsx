@@ -30,18 +30,18 @@ export default function ProductsPage() {
     <main>
       {/* Hero Section */}
       <section className="container max-w-7xl space-y-8 py-12 sm:py-16 md:py-20">
-        <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/">Home</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>Products</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
-        <header className="text-center">
+        <header className="flex flex-col items-center justify-center gap-4 text-center md:pt-12">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/">Home</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Products</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
           <h1 className="text-teal-600 text-title-3 md:text-title-2 lg:text-title-1">Best Selling Products</h1>
 
           <p className="text-balance text-lead text-stone-600">
@@ -55,7 +55,7 @@ export default function ProductsPage() {
         <Tabs defaultValue="all">
           <h2 className="sr-only">Filter by Category</h2>
           {/* Categories Filter */}
-          <div className="flex items-center justify-between">
+          <div className="mb-4 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <TabsList>
                 <TabsTrigger className="text-label" value="all">

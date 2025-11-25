@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Currency } from "@/components/ui/currency";
 
 import { PRODUCTS } from "@/data/products";
+import { slugify } from "@/lib/utils";
 
 interface Props {
   data: (typeof PRODUCTS)[number];
@@ -15,7 +17,8 @@ export const ProductCard = ({ data }: Props) => {
   if (!data) return null;
 
   return (
-    <Card>
+    <Card className="relative">
+      <Link className="absolute inset-0 z-10" href={`/products/${slugify(data.name)}`} />
       <CardContent>
         <div className="relative aspect-16/11 md:aspect-4/3">
           <Image alt={data.name ?? "Product Image"} className="object-cover" fill src={data.images[0]} />

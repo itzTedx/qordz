@@ -17,5 +17,8 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
-  "cSpell.words": ["Airtune", "oklab", "qordz", "Wordmark", "gsap"]
+  "cSpell.words": ["Airtune", "oklab", "qordz", "Wordmark", "gsap"],
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
