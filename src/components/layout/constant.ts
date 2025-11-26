@@ -88,7 +88,7 @@ export const FOOTER_LINKS: FooterLink[] = [
   },
   {
     id: 3,
-    label: "Shop",
+    label: "Products",
     links: NAV_LINKS,
   },
   {
