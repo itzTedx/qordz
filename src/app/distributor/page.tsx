@@ -1,3 +1,3 @@
-export const DistributorPage = () => {
-  return <div>DistributorPage</div>;
-};
+export default function DistributorPage() {
+  return <main className="mt-20">DistributorPage</main>;
+}
