@@ -2,7 +2,7 @@
 
 import React, { useCallback, useEffect, useState } from "react";
 
-import Image from "next/image";
+import NextImage from "next/image";
 
 import useEmblaCarousel, { type UseEmblaCarouselType } from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -10,6 +10,8 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import { cn } from "@/lib/utils";
+
+import { Image, ImageZoom } from "./image-zoom";
 
 interface Image {
   src: string;
@@ -50,19 +52,32 @@ const ImageContainer: React.FC<{
 }> = ({ aspectRatio, classNameImage, image }) => {
   return (
     <div className={cn("relative w-full overflow-hidden rounded-lg bg-card", getAspectRatioClass(aspectRatio))}>
-      <Image
+      <ImageZoom zoomOnHover={false} zoomScale={2}>
+        <Image
+          alt={image?.alt ?? "Full size"}
+          as={NextImage}
+          className={classNameImage}
+          height={1080}
+          objectFit="contain"
+          priority
+          sizes="(max-width: 768px) 90vw, (max-width: 1200px) 80vw, 70vw"
+          src={image?.src ?? ""}
+          width={1350}
+        />
+      </ImageZoom>
+      {/* <Image
         alt={image?.alt ?? "Full size"}
         className={cn("h-full w-full object-contain", classNameImage)}
         fill
         sizes="(max-width: 768px) 90vw, (max-width: 1200px) 80vw, 70vw"
         src={image?.src ?? ""}
-      />
+      /> */}
     </div>
   );
 };
 
 const Thumb: React.FC<ThumbPropType> = (props) => {
-  const { imgUrl, index, onClick, selected, title, blurDataURL } = props;
+  const { imgUrl, index, onClick, selected, title } = props;
 
   return (
     <div
@@ -70,7 +85,7 @@ const Thumb: React.FC<ThumbPropType> = (props) => {
         "transition-opacity duration-200",
 
         // Horizontal layout (top/bottom)
-        "group-[.thumbs-horizontal]:min-w-0 group-[.thumbs-horizontal]:flex-[0_0_22%] group-[.thumbs-horizontal]:pl-3 sm:group-[.thumbs-horizontal]:flex-[0_0_20%]",
+        "group-[.thumbs-horizontal]:min-w-0 group-[.thumbs-horizontal]:flex-[0_0_22%] group-[.thumbs-horizontal]:pl-2 sm:group-[.thumbs-horizontal]:flex-[0_0_20%]",
         // Vertical layout (left/right)
         "group-[.thumbs-vertical]:w-full group-[.thumbs-vertical]:pt-3"
       )}
@@ -87,12 +102,10 @@ const Thumb: React.FC<ThumbPropType> = (props) => {
             getAspectRatioClass("wide")
           )}
         >
-          <Image
+          <NextImage
             alt={title || `Thumbnail ${index + 1}`}
-            blurDataURL={blurDataURL ?? undefined}
             className={cn("h-full w-full bg-card object-contain")}
             fill
-            placeholder={blurDataURL ? "blur" : "empty"}
             sizes="(max-width: 768px) 20vw, 15vw"
             src={imgUrl}
           />
@@ -315,7 +328,7 @@ const ImageCarousel: React.FC<ImageCarousel_BasicProps> = ({
       {showThumbs && (thumbPosition === "bottom" || thumbPosition === "left" || thumbPosition === "right") && (
         <div
           className={cn(
-            thumbPosition === "left" || thumbPosition === "right" ? "relative flex-[0_0_20%]" : "relative mt-4"
+            thumbPosition === "left" || thumbPosition === "right" ? "relative flex-[0_0_20%]" : "relative mt-2"
           )}
         >
           <div
@@ -328,7 +341,7 @@ const ImageCarousel: React.FC<ImageCarousel_BasicProps> = ({
             <div
               className={cn(
                 thumbPosition === "bottom"
-                  ? "thumbs-horizontal group -ml-3 flex"
+                  ? "thumbs-horizontal group -ml-2 flex"
                   : "thumbs-vertical group -mt-3 flex h-full flex-col"
               )}
             >
