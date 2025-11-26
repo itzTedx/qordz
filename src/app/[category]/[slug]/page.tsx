@@ -21,6 +21,7 @@ import { WaterMark } from "@/assets/logo";
 import { PRODUCTS } from "@/data/products";
 import { ProductCard } from "@/modules/products/components/product-card";
 
+import { ImagesCarousel } from "./components/images-carousel";
 import { OverviewTabs } from "./components/overview-tabs";
 
 const FEATURE_TILE_CLASSES = [
@@ -51,18 +52,7 @@ export default async function ProductPage({ params }: PageProps<"/[category]/[sl
       </Breadcrumb>
 
       <section aria-labelledby="product-title" className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-9">
-        <div className="h-fit lg:sticky lg:top-28 lg:col-span-2">
-          <div className="relative aspect-4/3 overflow-hidden rounded-xl bg-card sm:aspect-5/3 lg:aspect-6/4">
-            <Image
-              alt="Qordz AirTune Lite in charging case"
-              className="object-contain"
-              fill
-              priority
-              sizes="(min-width: 1024px) 60vw, (min-width: 640px) 80vw, 100vw"
-              src="/images/qordz-airtune.webp"
-            />
-          </div>
-        </div>
+        <ImagesCarousel />
         <div className="space-y-6 lg:col-span-1">
           <div className="space-y-1.5">
             <h1 className="text-teal-600 text-title-5 md:text-title-4 lg:text-4xl lg:leading-snug" id="product-title">
