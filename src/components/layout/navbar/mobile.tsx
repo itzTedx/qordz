@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { Button } from "@/components/ui/button";
 
 import { cn } from "@/lib/utils";
@@ -24,12 +26,13 @@ export const MobileNavbar = ({ isScrolled, pathname }: { isScrolled: boolean; pa
         </li>
         <li className="hidden md:block">
           <Button
+            asChild
             className="rounded-full border-transparent bg-transparent backdrop-blur-none hover:bg-muted"
             size="sm"
             type="button"
             variant="ghost"
           >
-            About us
+            <Link href="/about">About us</Link>
           </Button>
         </li>
         <li>

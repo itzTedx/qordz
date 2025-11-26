@@ -119,17 +119,17 @@ export const FOOTER_LINKS: FooterLink[] = [
   },
   {
     id: 5,
-    label: "Customer Support",
+    label: "Support Center",
     links: [
       {
         id: 1,
-        title: "support@qordz.com",
-        href: "mailto:support@qordz.com",
+        title: "FAQs",
+        href: "/resources/faqs" as Route,
       },
       {
         id: 2,
-        title: "+971-XXX-XXXXXX",
-        href: "tel:+971-XXX-XXXXXX",
+        title: "support@qordz.com",
+        href: "mailto:support@qordz.com",
       },
     ],
   },

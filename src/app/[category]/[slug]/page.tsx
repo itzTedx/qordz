@@ -34,7 +34,7 @@ export default async function ProductPage({ params }: PageProps<"/[category]/[sl
   const { category, slug } = await params;
 
   return (
-    <main aria-labelledby="product-title" className="container max-w-7xl space-y-4 px-4 py-20 sm:px-6">
+    <main aria-labelledby="product-title" className="container max-w-7xl space-y-4 px-4 pt-20 sm:px-6">
       <Breadcrumb aria-label="Breadcrumb">
         <BreadcrumbList>
           <BreadcrumbItem>
