@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 
 import { Community } from "@/modules/sections/community";
 
+import { ParallaxImage } from "./components/parallax-image";
+
 const TABS = [
   {
     href: "online",
@@ -37,14 +39,7 @@ export default function WhereToBuyPage() {
             </Button>
           </div>
         </div>
-        <Image
-          alt="Qordz Products"
-          className="object-cover brightness-75 md:brightness-100"
-          fill
-          priority
-          sizes="(max-width: 768px) 100vw, 80vw"
-          src="/images/qordz-products.webp"
-        />
+        <ParallaxImage />
       </header>
 
       <nav aria-label="Product detail sections" className="mx-2 rounded-2xl bg-card">

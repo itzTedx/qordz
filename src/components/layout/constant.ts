@@ -71,7 +71,7 @@ export const FOOTER_LINKS: FooterLink[] = [
       {
         id: 6,
         title: "FAQs",
-        href: "/",
+        href: "/resoruces/faqs" as Route,
       },
     ],
   },
@@ -87,23 +87,23 @@ export const FOOTER_LINKS: FooterLink[] = [
       {
         id: 1,
         title: "Terms & Conditions",
-        href: "/",
+        href: "/legal/terms" as Route,
       },
       {
         id: 2,
         title: "Privacy Policy",
-        href: "/",
+        href: "/legal/privacy-policy" as Route,
       },
       {
         id: 3,
         title: "Refund & Returns Policy",
-        href: "/",
+        href: "/legal/refund-and-returns" as Route,
       },
-      {
-        id: 4,
-        title: "Shipping Information",
-        href: "/",
-      },
+      // {
+      //   id: 4,
+      //   title: "Shipping Information",
+      //   href: "/",
+      // },
     ],
   },
   {
