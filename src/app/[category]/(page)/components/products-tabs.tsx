@@ -14,6 +14,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import { IconChevronDownFill, IconSorting } from "@/assets/icons";
@@ -58,29 +59,32 @@ export const ProductsTabs = ({ children }: Props) => {
     >
       <h2 className="sr-only">Filter by Category</h2>
       {/* Categories Filter */}
-      <div className="mb-4 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <TabsList>
-            <TabsTrigger className="text-label" value="products">
-              All Products
-            </TabsTrigger>
-            {CATEGORIES.map((category) => (
-              <TabsTrigger className="text-label" key={category.id} value={slugify(category.label)}>
-                {category.label}
+      <ScrollArea className="rounded-full">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <TabsList>
+              <TabsTrigger className="text-label" value="products">
+                All Products
               </TabsTrigger>
-            ))}
-          </TabsList>
-          <span className="ml-3 text-sm text-stone-500">
-            <AnimatedCount category={currentCategory} count={count} pathname={pathname} />
-          </span>
-        </div>
-        <div className="flex items-center gap-1 rounded-full border bg-muted p-1">
-          <div className="flex size-8 items-center justify-center">
-            <IconSorting className="size-3.5 text-stone-500" />
+              {CATEGORIES.map((category) => (
+                <TabsTrigger className="text-label" key={category.id} value={slugify(category.label)}>
+                  {category.label}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+            <span className="ml-3 hidden text-sm text-stone-500 md:block">
+              <AnimatedCount category={currentCategory} count={count} pathname={pathname} />
+            </span>
           </div>
-          <Sorting />
+          <div className="flex items-center gap-1 rounded-full border bg-muted p-1">
+            <div className="flex size-8 items-center justify-center">
+              <IconSorting className="size-3.5 text-stone-500" />
+            </div>
+            <Sorting />
+          </div>
         </div>
-      </div>
+        <ScrollBar orientation="horizontal" />
+      </ScrollArea>
       {children}
     </Tabs>
   );

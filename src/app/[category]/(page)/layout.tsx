@@ -12,7 +12,7 @@ import { ProductsTabs } from "./components/products-tabs";
 export default function CategoryLayout({ children }: { children: React.ReactNode }) {
   return (
     <main>
-      <section className="container max-w-7xl space-y-8 py-12 sm:py-16 md:py-20">
+      <section className="container max-w-7xl space-y-8 pt-20 pb-6 md:py-20">
         <header className="flex flex-col items-center justify-center gap-4 text-center md:pt-12">
           <Breadcrumb>
             <BreadcrumbList>
