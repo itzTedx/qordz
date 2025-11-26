@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { IconChevronRight } from "@/assets/icons";
 
 import { CATEGORIES } from "@/data/categories";
+import { slugify } from "@/lib/utils";
 
 export const Categories = () => {
   return (
@@ -53,13 +54,14 @@ export const Categories = () => {
         }}
       >
         {CATEGORIES.map(({ Image, ...category }) => (
-          <div
+          <Link
             className="group card flex aspect-square flex-col items-center justify-center gap-4 rounded-xl bg-card p-3 shadow-sm transition-[box-shadow_transform] duration-300 hover:bg-teal-400 hover:shadow-lg md:p-4"
+            href={`/${slugify(category.label)}`}
             key={category.id}
           >
             <Image className="size-20 text-stone-700 group-hover:text-teal-900 md:size-24 lg:size-32" />
             <h3 className="text-sm md:text-base">{category.label}</h3>
-          </div>
+          </Link>
         ))}
       </AnimatedGroup>
     </section>

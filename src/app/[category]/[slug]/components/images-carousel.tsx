@@ -1,11 +1,52 @@
-import NextImage from "next/image";
-
-import { Image, ImageZoom } from "@/components/ui/image-zoom";
+import ImageCarousel from "@/components/ui/carousel-with-thumbnail";
 
 export const ImagesCarousel = () => {
   return (
     <div className="h-fit lg:sticky lg:top-28 lg:col-span-2">
-      <div className="relative aspect-4/3 overflow-hidden rounded-xl bg-card sm:aspect-5/3 lg:aspect-6/4">
+      <ImageCarousel
+        aspectRatio="wide"
+        images={[
+          {
+            alt: "Qordz AirTune Lite in charging case",
+            src: "/images/qordz-airtune.webp",
+          },
+          {
+            alt: "Qordz AirTune Lite in charging case",
+            src: "/images/qordz-airtune.webp",
+          },
+          {
+            alt: "Qordz AirTune Lite in charging case",
+            src: "/images/qordz-airtune.webp",
+          },
+          {
+            alt: "Qordz AirTune Lite in charging case",
+            src: "/images/qordz-airtune.webp",
+          },
+          {
+            alt: "Qordz AirTune Lite in charging case",
+            src: "/images/qordz-airtune.webp",
+          },
+          {
+            alt: "Qordz AirTune Lite in charging case",
+            src: "/images/qordz-airtune.webp",
+          },
+          {
+            alt: "Qordz AirTune Lite in charging case",
+            src: "/images/qordz-airtune.webp",
+          },
+          {
+            alt: "Qordz AirTune Lite in charging case",
+            src: "/images/qordz-airtune.webp",
+          },
+          {
+            alt: "Qordz AirTune Lite in charging case",
+            src: "/images/qordz-airtune.webp",
+          },
+        ]}
+        showThumbs
+        thumbPosition="bottom"
+      />
+      {/* <div className="relative aspect-4/3 overflow-hidden rounded-xl bg-card sm:aspect-5/3 lg:aspect-6/4">
         <ImageZoom zoomOnHover={false} zoomScale={2}>
           <Image
             alt="Qordz AirTune Lite in charging case"
@@ -18,7 +59,7 @@ export const ImagesCarousel = () => {
             width={1350}
           />
         </ImageZoom>
-      </div>
+      </div> */}
     </div>
   );
 };
