@@ -61,7 +61,7 @@ export const FOOTER_LINKS: FooterLink[] = [
       {
         id: 4,
         title: "About us",
-        href: "/",
+        href: "/about" as Route,
       },
     ],
   },
@@ -71,8 +71,8 @@ export const FOOTER_LINKS: FooterLink[] = [
     links: [
       {
         id: 1,
-        title: "FAQs",
-        href: "/resources/faqs" as Route,
+        title: "Blogs",
+        href: "/",
       },
       {
         id: 2,
@@ -81,8 +81,8 @@ export const FOOTER_LINKS: FooterLink[] = [
       },
       {
         id: 3,
-        title: "Blogs",
-        href: "/",
+        title: "FAQs",
+        href: "/resources/faqs" as Route,
       },
     ],
   },

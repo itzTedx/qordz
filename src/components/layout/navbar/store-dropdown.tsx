@@ -80,6 +80,14 @@ export const StoreDropdown = () => {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  className="font-medium uppercase transition-colors duration-300 hover:text-teal-400"
+                  href="/contact"
+                >
+                  Contact Us
+                </Link>
+              </li>
             </ul>
           </nav>
           <WaterMark className="-bottom-1/3 -translate-y-1/3 absolute left-1/2" />
