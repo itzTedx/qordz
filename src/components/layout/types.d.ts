@@ -3,6 +3,7 @@ import type { Route } from "next";
 export interface Social {
   id: number;
   href: Route;
+  label: string;
   Icon: (props: SVGProps) => JSX.Element;
 }
 

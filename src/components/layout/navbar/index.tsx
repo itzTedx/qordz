@@ -7,15 +7,12 @@ import { usePathname } from "next/navigation";
 
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
 
-import { Button } from "@/components/ui/button";
-
 import { Logo } from "@/assets/logo";
 
 import { cn } from "@/lib/utils";
 
 import { DesktopNavbar } from "./desktop";
-import { CommandMenu } from "./search";
-import { StoreDropdown } from "./store-dropdown";
+import { MobileNavbar } from "./mobile";
 
 export const SCROLL_THRESHOLD = 720;
 
@@ -120,36 +117,7 @@ export const Navbar = () => {
               )}
             />
           </nav>
-          <nav
-            aria-label="Secondary"
-            className={cn(
-              "flex items-center gap-1 rounded-full border p-1 backdrop-blur-lg transition-colors duration-300",
-              isScrolled
-                ? "bg-background text-stone-600"
-                : pathname === "/"
-                  ? "bg-teal-600/50 text-teal-900"
-                  : "bg-background text-stone-600"
-            )}
-          >
-            <ul className="flex items-center gap-1" role="list">
-              <li>
-                <CommandMenu />
-              </li>
-              <li>
-                <Button
-                  className="rounded-full border-transparent bg-transparent backdrop-blur-none hover:bg-muted"
-                  size="sm"
-                  type="button"
-                  variant="ghost"
-                >
-                  About us
-                </Button>
-              </li>
-              <li>
-                <StoreDropdown />
-              </li>
-            </ul>
-          </nav>
+          <MobileNavbar isScrolled={isScrolled} pathname={pathname} />
         </div>
       </motion.header>
     </AnimatePresence>

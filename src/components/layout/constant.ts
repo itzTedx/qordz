@@ -128,16 +128,19 @@ export const SOCIAL: Social[] = [
   {
     id: 1,
     href: "/",
+    label: "Instagram",
     Icon: IconSocialInstagram,
   },
   {
     id: 2,
     href: "/",
+    label: "Facebook",
     Icon: IconSocialFacebook,
   },
   {
     id: 3,
     href: "/",
+    label: "X",
     Icon: IconSocialX,
   },
 ];
