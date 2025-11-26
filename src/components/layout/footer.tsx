@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Logo, Wordmark } from "@/assets/logo";
 
 import { AnimatedGroup } from "../ui/animated-group";
+import { Button } from "../ui/button";
 import { FOOTER_LINKS } from "./constant";
 import { SocialChips } from "./footer/social-chip";
 
@@ -51,6 +52,11 @@ export const Footer = () => {
             </ul>
           </div>
         ))}
+        <div>
+          <Button asChild>
+            <Link href="/distributor">Become a Distributor</Link>
+          </Button>
+        </div>
       </AnimatedGroup>
       <div className="container relative z-10 flex max-w-7xl items-center justify-between">
         <div>
