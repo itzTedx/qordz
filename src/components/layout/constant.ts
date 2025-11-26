@@ -63,25 +63,36 @@ export const FOOTER_LINKS: FooterLink[] = [
         title: "About us",
         href: "/",
       },
-      {
-        id: 5,
-        title: "Testimonials",
-        href: "/",
-      },
-      {
-        id: 6,
-        title: "FAQs",
-        href: "/resoruces/faqs" as Route,
-      },
     ],
   },
   {
     id: 2,
+    label: "Resources",
+    links: [
+      {
+        id: 1,
+        title: "FAQs",
+        href: "/resoruces/faqs" as Route,
+      },
+      {
+        id: 2,
+        title: "Testimonials",
+        href: "/",
+      },
+      {
+        id: 3,
+        title: "Blogs",
+        href: "/",
+      },
+    ],
+  },
+  {
+    id: 3,
     label: "Shop",
     links: NAV_LINKS,
   },
   {
-    id: 3,
+    id: 4,
     label: "Legal",
     links: [
       {
@@ -107,7 +118,7 @@ export const FOOTER_LINKS: FooterLink[] = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     label: "Customer Support",
     links: [
       {
