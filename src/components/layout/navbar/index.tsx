@@ -99,7 +99,7 @@ export const Navbar = () => {
         }}
       >
         <div className="container relative z-999 flex max-w-7xl items-center justify-between py-2 md:py-3">
-          <nav aria-label="Primary" className="flex items-center gap-12">
+          <nav aria-label="Primary" className="flex items-center gap-9">
             <Link aria-label="Go to home" href="/" title="Go to home">
               <Logo
                 className={"h-8 w-auto text-teal-900 transition-all duration-300 sm:h-10"}

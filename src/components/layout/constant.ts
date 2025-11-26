@@ -72,7 +72,7 @@ export const FOOTER_LINKS: FooterLink[] = [
       {
         id: 1,
         title: "FAQs",
-        href: "/resoruces/faqs" as Route,
+        href: "/resources/faqs" as Route,
       },
       {
         id: 2,
