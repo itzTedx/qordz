@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "biome check",
+    "lint": "biome check --write .",
     "format": "biome format --write",
     "migrate:radix": "pnpm dlx shadcn@latest migrate radix"
   },
@@ -29,7 +29,7 @@
     "gsap": "^3.13.0",
     "lucide-react": "^0.554.0",
     "motion": "^12.23.24",
-    "next": "16.0.7",
+    "next": "16.0.10",
     "nuqs": "^2.8.1",
     "radix-ui": "latest",
     "react": "19.2.0",

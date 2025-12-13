@@ -120,7 +120,7 @@ function composeEventHandlers<E extends React.SyntheticEvent<unknown>>(
   };
 }
 
-// biome-ignore lint/suspicious/noExplicitAny: I dont know what this is
+// biome-ignore lint/suspicious/noExplicitAny: I don't know what this is
 type AnyProps = Record<string, any>;
 
 function AnimateIcon({
@@ -204,6 +204,7 @@ function AnimateIcon({
     activeRef.current = localAnimate;
   }, [localAnimate]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: we don't want to re-run the effect when the deps change
   React.useEffect(() => {
     if (animate === undefined) return;
     setCurrentAnimation(typeof animate === "string" ? animate : animation);
@@ -244,6 +245,7 @@ function AnimateIcon({
     else stopAnimation();
   }, [isInView, animateOnView, startAnimation, stopAnimation]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: we don't want to re-run the effect when the deps change
   React.useEffect(() => {
     const gen = ++runGenRef.current;
     cancelledRef.current = false;
