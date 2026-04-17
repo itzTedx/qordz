@@ -1,14 +1,25 @@
 import { Fragment } from "react";
 
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import type { LucideIcon } from "lucide-react";
 import { ClipboardList, HandCoins, PackageOpen, ShieldCheck, Truck } from "lucide-react";
 
+import { JsonLd } from "@/components/seo/json-ld";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { DescriptionDetails, DescriptionList, DescriptionTerm } from "@/components/ui/description-list";
 import { Separator } from "@/components/ui/separator";
+
+import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildMetadata({
+  title: "Refund & Return Policy",
+  description:
+    "Qordz refund and return policy for the UAE and international customers. Review eligibility, timelines, courier coordination, and warranty versus return rules.",
+  path: "/legal/refund-and-returns",
+});
 
 interface HighlightCard {
   title: string;
@@ -193,7 +204,7 @@ export default function RefundAndReturnsPage() {
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {HIGHLIGHTS.map(({ title, description, Icon }) => (
             <article
-              className="hover:-translate-y-0.5 h-full rounded-2xl border border-stone-200 bg-card p-5 shadow-sm transition focus-within:ring-2 focus-within:ring-primary/40 hover:shadow-md"
+              className="h-full rounded-2xl border border-stone-200 bg-card p-5 shadow-sm transition focus-within:ring-2 focus-within:ring-primary/40 hover:-translate-y-0.5 hover:shadow-md"
               key={title}
             >
               <Icon aria-hidden className="text-primary" />
@@ -278,6 +289,15 @@ export default function RefundAndReturnsPage() {
           </div>
         </div>
       </section>
+
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: "/" },
+          { name: "Legal", url: "/legal/refund-and-returns" },
+          { name: "Refund & Return Policy", url: "/legal/refund-and-returns" },
+        ])}
+        id="ld-breadcrumb-refund"
+      />
     </main>
   );
 }

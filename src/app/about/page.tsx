@@ -1,12 +1,30 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 import { Cta } from "@/components/layout/cta";
+import { JsonLd } from "@/components/seo/json-ld";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+
+import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildMetadata({
+  title: "About Qordz \u2013 Dubai-based Mobile Accessories Brand",
+  description:
+    "Qordz is a Dubai-based mobile accessories brand engineering reliable charging, audio, and power gear for the UAE and GCC. Learn our story, milestones, and values.",
+  path: "/about",
+  keywords: [
+    "about Qordz",
+    "Qordz Dubai",
+    "Dubai mobile accessories brand",
+    "UAE electronics brand",
+    "Qordz FZE",
+  ],
+});
 
 interface Metric {
   value: string;
@@ -240,6 +258,14 @@ export default function AboutPage() {
       </section>
 
       <Cta />
+
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: "/" },
+          { name: "About", url: "/about" },
+        ])}
+        id="ld-breadcrumb-about"
+      />
     </main>
   );
 }

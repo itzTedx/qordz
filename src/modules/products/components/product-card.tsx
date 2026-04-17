@@ -16,15 +16,25 @@ interface Props {
 export const ProductCard = ({ data }: Props) => {
   if (!data) return null;
 
+  const href = `/products/${slugify(data.name)}` as const;
+  const imageAlt = `${data.name} \u2013 ${data.category} by Qordz`;
+
   return (
     <Card className="relative">
-      <Link className="absolute inset-0 z-10" href={`/products/${slugify(data.name)}`} />
       <CardContent className="overflow-hidden">
         <div className="relative aspect-16/11 md:aspect-4/3">
-          <Image alt={data.name ?? "Product Image"} className="object-cover" fill src={data.images[0]} />
+          <Image alt={imageAlt} className="object-cover" fill src={data.images[0]} />
         </div>
         <CardHeader className="text-teal-600">
-          <CardTitle>{data.name}</CardTitle>
+          <CardTitle>
+            <Link
+              aria-label={`${data.name} \u2013 Qordz UAE`}
+              className="after:absolute after:inset-0 hover:underline focus-visible:underline"
+              href={href}
+            >
+              {data.name}
+            </Link>
+          </CardTitle>
           <CardDescription className="flex items-center gap-2">
             <p className="flex items-center gap-1 font-semibold text-lg leading-none">
               <Currency className="font-light text-base" /> {data.price}
@@ -34,8 +44,16 @@ export const ProductCard = ({ data }: Props) => {
         </CardHeader>
       </CardContent>
       <CardFooter className="gap-2">
-        <Button className="w-full flex-1">Shop now</Button>
-        <Button variant="ghost">Learn more</Button>
+        <Button asChild className="relative z-10 w-full flex-1">
+          <Link aria-label={`Shop ${data.name}`} href={href}>
+            Shop now
+          </Link>
+        </Button>
+        <Button asChild className="relative z-10" variant="ghost">
+          <Link aria-label={`Learn more about ${data.name}`} href={href}>
+            Learn more
+          </Link>
+        </Button>
       </CardFooter>
     </Card>
   );

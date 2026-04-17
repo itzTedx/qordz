@@ -1,14 +1,25 @@
 import { Fragment } from "react";
 
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import type { LucideIcon } from "lucide-react";
 import { Handshake, PackageCheck, RefreshCcw, Scale, ShieldCheck } from "lucide-react";
 
+import { JsonLd } from "@/components/seo/json-ld";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { DescriptionDetails, DescriptionList, DescriptionTerm } from "@/components/ui/description-list";
 import { Separator } from "@/components/ui/separator";
+
+import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildMetadata({
+  title: "Terms & Conditions",
+  description:
+    "Read the Qordz terms and conditions for purchases on qordz.com, including orders, payments, shipping, warranty, returns, and governing law in Dubai, UAE.",
+  path: "/legal/terms",
+});
 
 interface HighlightCard {
   title: string;
@@ -201,7 +212,7 @@ export default function TermsAndConditionsPage() {
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {HIGHLIGHTS.map(({ title, description, Icon }) => (
             <article
-              className="hover:-translate-y-0.5 h-full rounded-2xl border border-stone-200 bg-card p-5 shadow-sm transition focus-within:ring-2 focus-within:ring-primary/40 hover:shadow-md"
+              className="h-full rounded-2xl border border-stone-200 bg-card p-5 shadow-sm transition focus-within:ring-2 focus-within:ring-primary/40 hover:-translate-y-0.5 hover:shadow-md"
               key={title}
             >
               <Icon aria-hidden className="text-primary" />
@@ -286,6 +297,15 @@ export default function TermsAndConditionsPage() {
           </div>
         </div>
       </section>
+
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: "/" },
+          { name: "Legal", url: "/legal/terms" },
+          { name: "Terms & Conditions", url: "/legal/terms" },
+        ])}
+        id="ld-breadcrumb-terms"
+      />
     </main>
   );
 }

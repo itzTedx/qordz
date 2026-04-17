@@ -1,14 +1,25 @@
 import { Fragment } from "react";
 
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import type { LucideIcon } from "lucide-react";
 import { BellRing, Database, Fingerprint, Globe2, MailCheck, ShieldCheck } from "lucide-react";
 
+import { JsonLd } from "@/components/seo/json-ld";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { DescriptionDetails, DescriptionList, DescriptionTerm } from "@/components/ui/description-list";
 import { Separator } from "@/components/ui/separator";
+
+import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildMetadata({
+  title: "Privacy Policy",
+  description:
+    "How Qordz collects, uses, and protects personal information on qordz.com, including cookies, analytics, data retention, international transfers, and your rights.",
+  path: "/legal/privacy-policy",
+});
 
 interface HighlightCard {
   title: string;
@@ -288,6 +299,15 @@ export default function PrivacyPolicyPage() {
           </div>
         </div>
       </section>
+
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: "/" },
+          { name: "Legal", url: "/legal/privacy-policy" },
+          { name: "Privacy Policy", url: "/legal/privacy-policy" },
+        ])}
+        id="ld-breadcrumb-privacy"
+      />
     </main>
   );
 }

@@ -1,12 +1,33 @@
-import { Route } from "next";
+import type { Metadata, Route } from "next";
 import Link from "next/link";
 
+import { JsonLd } from "@/components/seo/json-ld";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
+import { breadcrumbJsonLd, buildMetadata, faqJsonLd } from "@/lib/seo";
+
 import { CONTACT_OPTIONS, FAQ_SECTIONS } from "./constants";
+
+export const metadata: Metadata = buildMetadata({
+  title: "Qordz FAQs \u2013 Shipping, Warranty & Support in UAE",
+  description:
+    "Answers to the most common Qordz questions: UAE shipping times, payment methods, MFi/USB-IF certification, lifetime warranty coverage, returns, and troubleshooting.",
+  path: "/resources/faqs",
+  keywords: [
+    "Qordz FAQ",
+    "Qordz warranty",
+    "Qordz shipping UAE",
+    "Qordz returns",
+    "Qordz support",
+  ],
+});
+
+const ALL_FAQS = FAQ_SECTIONS.flatMap((section) =>
+  section.faqs.map((faq) => ({ question: faq.question, answer: faq.answer }))
+);
 
 export default function FaqsPage() {
   return (
@@ -89,6 +110,16 @@ export default function FaqsPage() {
           </aside>
         </div>
       </section>
+
+      <JsonLd data={faqJsonLd(ALL_FAQS)} id="ld-faq" />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: "/" },
+          { name: "Resources", url: "/resources/faqs" },
+          { name: "FAQs", url: "/resources/faqs" },
+        ])}
+        id="ld-breadcrumb-faqs"
+      />
     </main>
   );
 }

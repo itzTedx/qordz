@@ -1,13 +1,31 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 import { Cta } from "@/components/layout/cta";
+import { JsonLd } from "@/components/seo/json-ld";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
+import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 import { Community } from "@/modules/sections/community";
 
 import { ParallaxImage } from "./components/parallax-image";
+
+export const metadata: Metadata = buildMetadata({
+  title: "Where to Buy Qordz in UAE \u2013 Noon, Amazon, Dubai & Abu Dhabi",
+  description:
+    "Shop Qordz accessories across the UAE. Buy online from Amazon UAE and Noon with delivery to Dubai and Abu Dhabi, or visit our authorised retail partners.",
+  path: "/where-to-buy",
+  keywords: [
+    "Qordz Amazon UAE",
+    "Qordz Noon",
+    "buy Qordz Dubai",
+    "buy Qordz Abu Dhabi",
+    "Qordz retailers UAE",
+    "where to buy mobile accessories UAE",
+  ],
+});
 
 const TABS = [
   {
@@ -123,6 +141,14 @@ export default function WhereToBuyPage() {
 
       <Community />
       <Cta />
+
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", url: "/" },
+          { name: "Where to Buy", url: "/where-to-buy" },
+        ])}
+        id="ld-breadcrumb-where-to-buy"
+      />
     </main>
   );
 }
