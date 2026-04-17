@@ -6,6 +6,7 @@ import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { BreakpointIndicator } from "@/components/dev/breakpoint-ind";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
+import { OpenPanelProvider } from "@/components/openpanel-provider";
 
 import { acidGrotesk, mono, sfPro } from "@/assets/fonts";
 
@@ -24,11 +25,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(sfPro.className, mono.variable, acidGrotesk.variable, "antialiased")}>
-        <NuqsAdapter>
-          <Navbar />
-          {children}
-          <Footer />
-        </NuqsAdapter>
+        <OpenPanelProvider>
+          <NuqsAdapter>
+            <Navbar />
+            {children}
+            <Footer />
+          </NuqsAdapter>
+        </OpenPanelProvider>
 
         <BreakpointIndicator />
 
