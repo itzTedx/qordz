@@ -71,6 +71,9 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  verification: {
+    google: "oUkdAf6F3JW5Du3AmscZ7armvTedmB-k3IG3l94b5Zk",
+  },
   category: "shopping",
   other: {
     "geo.region": "AE",
